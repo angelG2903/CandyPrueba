@@ -21,12 +21,6 @@
   
   #wrapper {
     overflow-x: hidden;
-    /* background-image: linear-gradient(to right,
-        #baf3d7,
-        #c2f5de,
-        #cbf7e4,
-        #d4f8ea,
-        #ddfaef); */
   }
   
   #sidebar-wrapper {
@@ -396,7 +390,17 @@
     color: white;
   }
   
-  footer {
+  footer .foo {
+    /* position: absolute;
+    bottom: 0; */
+      
+    height: 50px;
+    width: 100%;
+    background-image: linear-gradient(to right, #ffb88c, #e08282);
+  
+  }
+
+  .f {
     position: absolute;
     bottom: 0;
       

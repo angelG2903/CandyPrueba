@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,14 +36,28 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ca
 // con esta linea de codigo mostramos todas las rutas que estan en el controlador
 
 // Route::resource('employee',EmployeeController::class);
+
+// Rutas del empleado
 Route::get('employee',[App\Http\Controllers\EmployeeController::class, 'index'])->name('employee');
-Route::get('RegisterOrder',[App\Http\Controllers\EmployeeController::class, 'registerOrder'])->name('employee.RegisterOrder');
+
+// Route::get('RegisterOrder',[App\Http\Controllers\EmployeeController::class, 'registerOrder'])->name('employee.RegisterOrder');
+
 Route::get('ShowOrder',[App\Http\Controllers\EmployeeController::class, 'showOrder'])->name('employee.showOrder');
 Route::get('RegisterProduct',[App\Http\Controllers\EmployeeController::class, 'registerProduc'])->name('employee.RegisterProduct');
 Route::get('RecordSale',[App\Http\Controllers\EmployeeController::class, 'recordSale'])->name('employee.RecordSale');
 
 
 
+Route::get('OrderI',[App\Http\Controllers\OrderController::class, 'index'])->name('OrderI');
+Route::get('Order/create',[App\Http\Controllers\OrderController::class, 'create'])->name('Order.create');
+Route::post('Order/store',[App\Http\Controllers\OrderController::class, 'store'])->name('Order.store');
+Route::get('Order/{id}/edit',[App\Http\Controllers\OrderController::class, 'edit'])->name('Order.edit');
+Route::patch('Order/{id}',[App\Http\Controllers\OrderController::class, 'update'])->name('Order.update');
+
+
+
+
+// Rutas del administrador
 Route::get('Dashboard',[App\Http\Controllers\AdminController::class, 'index'])->name('Dashboard');
 Route::get('Inventory',[App\Http\Controllers\AdminController::class, 'inventory'])->name('Inventory');
 Route::get('Order',[App\Http\Controllers\AdminController::class, 'showOrder'])->name('Order');

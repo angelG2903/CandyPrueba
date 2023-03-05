@@ -15,7 +15,8 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Mis estilos -->
-    <link rel="stylesheet" href="../resources/css/style.css">
+    <!-- <link rel="stylesheet" href="../resources/css/style.css"> -->
+    <link rel="stylesheet" href="{{ Vite::asset('resources/css/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
     <!-- Scripts -->
@@ -68,9 +69,9 @@
             @yield('content')
             
         </main>
-        
     </div>
-    <!-- <footer></footer> -->
+    <!-- <footer class="f"></footer> -->
+    <footer></footer>
 
     <script>
         var el = document.getElementById("wrapper");

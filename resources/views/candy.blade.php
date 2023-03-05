@@ -29,10 +29,10 @@
 
         <div class="row mt-5 mb-5 d-flex justify-content-center">
             <div class="col-sm-12 col-md-6 col-lg-6">
-                <img src="../resources/img/Candy.png" alt="" class="img-fluid">
+                <img src="{{ Vite::asset('resources/img/Candy.png') }}" alt="" class="img-fluid">
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6">
-                <img src="../resources/img/Candy.png" alt="" class="img-fluid">
+                <img src="{{ Vite::asset('resources/img/Candy.png') }}" alt="" class="img-fluid">
             </div>
             
 
@@ -40,7 +40,7 @@
         
 
     </div>
-    <footer></footer>
+    <footer class="f"></footer>
 
 </body>
 </html>

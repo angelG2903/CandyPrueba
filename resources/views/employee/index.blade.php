@@ -6,7 +6,7 @@
     <div class="row mt-5 ">
         <!-- Logo -->
         <div class="col-md-12 col-lg-7">
-            <img src="../resources/img/Candy.png" alt="" class="img-fluid">
+            <img src="{{ Vite::asset('resources/img/Candy.png') }}" alt="" class="img-fluid">
         </div>
 
         <!-- Botones -->
@@ -21,11 +21,11 @@
 
             <div class="col-sm-12 d-flex justify-content-center">
 
-                <a href="{{ route('employee.RegisterOrder') }}" class="botonNew">Registar pedido</a>
+                <a href="{{ route('Order.create') }}" class="botonNew">Registar pedido</a>
             </div>
 
             <div class="col-sm-12 d-flex justify-content-center">
-                <a href="{{ route('employee.showOrder') }}" class="botonNew">Consulta de pedidos</a>
+                <a href="{{ route('OrderI') }}" class="botonNew">Consulta de pedidos</a>
             </div>
             
         </div>
