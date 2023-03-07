@@ -3,6 +3,14 @@
 @section('content')
 <div class="container">
 
+@if(Session::has('mensaje'))
+    <div class="alert alert-success" role="alert">
+            {{ Session::get('mensaje') }}  
+    </div>
+@endif
+
+
+
     <div class="row mb-4 d-flex justify-content-start">
 
         @php

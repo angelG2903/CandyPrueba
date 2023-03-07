@@ -40,12 +40,37 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+
+        $campos=[
+            'nombre'=>'required|string|max:5',
+            'telefono'=>'required|numeric|min:10|max:10',
+            'direccion'=>'required|string|max:200',
+            'sabor'=>'required',
+            'relleno'=>'required|string|max:100',
+            'rebanadas'=>'required|string|max:40',
+            'decoracion'=>'required|string|max:200',
+            'precio'=>'required|numeric|max:6',
+            'anticipo'=>'required|numeric|max:6',
+            'fechaEntrega'=>'required|date',
+            'horaEntrega'=>'required',
+        ];
+
+        $mensaje=[
+            'required'=>'El :attribute es requerido',
+            'max'=>'El nombre es demaciado largo',
+            'horaEntrega.required'=>'La la hora es requerida'
+
+        ];
+
+        $this->validate($request, $campos,$mensaje);
+
+
         $dataOrder = request()->except('_token');
 
         Order::create($dataOrder);
         
         // return response()->json($dataOrder);
-        return redirect()->route('OrderI');
+        return redirect()->route('OrderI')->with('mensaje','Pedido registrado con éxito');
         
     }
 
@@ -76,9 +101,9 @@ class OrderController extends Controller
 
         Order::where('id','=',$id)->update($dataOrder);
 
-        $dataOrder = Order::find($id);
+        // $dataOrder = Order::find($id);
 
-        return view('order.edit', compact('dataOrder'));
+        return redirect()->route('OrderI')->with('mensaje','Pedido editado con éxito');
 
     }
 
