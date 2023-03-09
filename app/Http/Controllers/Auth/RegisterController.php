@@ -38,7 +38,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware(['admin', 'auth']);
     }
 
     public function redirectPath()
@@ -47,7 +47,7 @@ class RegisterController extends Controller
             return '/employee'; 
         }
         // dd('redirectPath');
-        return '/Dashboard';
+        return '/register'; 
         
     }
 
@@ -60,11 +60,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:120'],
+            'name' => ['required', 'string', 'max:25'],
+            'last_name' => ['required', 'string', 'max:25'],
             'phone_number' => ['required', 'string', 'min:10','max:10'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'rol' => ['string'],
+            'email' => ['required', 'string', 'email', 'max:35', 'unique:users'],
+            'rol' => ['required'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }

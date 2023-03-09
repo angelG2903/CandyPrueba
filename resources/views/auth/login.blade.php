@@ -16,8 +16,7 @@
                 <h4 class="text-center">Inicio de sesión</h4>
                 <div class="mb-3">
                     <label for="correo" class="form-label">Correo</label>
-                    <input type="email" class="form-control" id="correo" aria-describedby="emailHelp" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                    <div id="emailHelp" class="form-text">Ingrese su correo electrónico</div>
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="correo" name="email" value="{{ old('email') }}"  autocomplete="email" autofocus>
                     <!-- en caso de un error -->
                     @error('email')
                     <span class="invalid-feedback" role="alert">
@@ -27,7 +26,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="pass" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="pass" name="password" required autocomplete="current-password">
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="pass" name="password"  autocomplete="current-password">
                     <!-- En caso de un error -->
                     @error('password')
                     <span class="invalid-feedback" role="alert">
