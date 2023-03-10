@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'session' => \App\Http\Middleware\VerifySession::class,
         'admin' => \App\Http\Middleware\AdminMiddleware::class,
         'user' => \App\Http\Middleware\UserMiddleware::class,
+        'disable_back' => \App\Http\Middleware\DisableBack::class,
     ];
 }

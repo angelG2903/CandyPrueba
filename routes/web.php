@@ -42,17 +42,23 @@ Route::get('employee',[App\Http\Controllers\EmployeeController::class, 'index'])
 
 // Route::get('RegisterOrder',[App\Http\Controllers\EmployeeController::class, 'registerOrder'])->name('employee.RegisterOrder');
 
-Route::get('ShowOrder',[App\Http\Controllers\EmployeeController::class, 'showOrder'])->name('employee.showOrder');
-Route::get('RegisterProduct',[App\Http\Controllers\EmployeeController::class, 'registerProduc'])->name('employee.RegisterProduct');
 Route::get('RecordSale',[App\Http\Controllers\EmployeeController::class, 'recordSale'])->name('employee.RecordSale');
 
 
-
+// Route::group(['middleware'=>'disable_back'],function(){
 Route::get('OrderI',[App\Http\Controllers\OrderController::class, 'index'])->name('OrderI');
 Route::get('Order/create',[App\Http\Controllers\OrderController::class, 'create'])->name('Order.create');
 Route::post('Order/store',[App\Http\Controllers\OrderController::class, 'store'])->name('Order.store');
 Route::get('Order/{id}/edit',[App\Http\Controllers\OrderController::class, 'edit'])->name('Order.edit');
 Route::patch('Order/{id}',[App\Http\Controllers\OrderController::class, 'update'])->name('Order.update');
+// });
+
+Route::get('Product',[\App\Http\Controllers\RegisterProductController::class, 'index'])->name('Product');
+Route::get('Product/create',[\App\Http\Controllers\RegisterProductController::class, 'create'])->name('Product.create');
+Route::post('Product/store',[\App\Http\Controllers\RegisterProductController::class, 'store'])->name('Product.store');
+Route::get('Product/{id}/edit',[\App\Http\Controllers\RegisterProductController::class, 'edit'])->name('Product.edit');
+Route::patch('Product/{id}',[\App\Http\Controllers\RegisterProductController::class, 'update'])->name('Product.update');
+
 
 
 

@@ -100,7 +100,7 @@
 <!-- Precio id: precio -->
 <div class="mb-3">
     <label for="precio" class="form-label">Precio</label>
-    <input type="number" step="0.01" min="0" max="99999" class="form-control borde @error('precio') is-invalid @enderror" value="{{ isset($dataOrder-> precio)?$dataOrder-> precio:old('precio') }}" name="precio" id="precio">
+    <input type="number" step="0.01" min="0" max="23000" class="form-control borde @error('precio') is-invalid @enderror" value="{{ isset($dataOrder-> precio)?$dataOrder-> precio:old('precio') }}" name="precio" id="precio">
     @error('precio')
     <span class="invalid-feedback" role="alert">
         <strong>{{ $message }}</strong>
@@ -111,7 +111,7 @@
 <!-- Anticipo id: anticipo -->
 <div class="mb-3">
     <label for="anticipo" class="form-label">Anticipo</label>
-    <input type="number" step="0.01" min="0" max="99999" class="form-control borde @error('anticipo') is-invalid @enderror" value="{{ isset($dataOrder-> anticipo)?$dataOrder-> anticipo:old('anticipo') }}" name="anticipo" id="anticipo">
+    <input type="number" step="0.01" min="0" max="23000" class="form-control borde @error('anticipo') is-invalid @enderror" value="{{ isset($dataOrder-> anticipo)?$dataOrder-> anticipo:old('anticipo') }}" name="anticipo" id="anticipo">
     @error('anticipo')
     <span class="invalid-feedback" role="alert">
         <strong>{{ $message }}</strong>

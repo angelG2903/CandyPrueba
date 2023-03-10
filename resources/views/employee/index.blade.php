@@ -12,7 +12,7 @@
         <!-- Botones -->
         <div class="col-md-12 col-lg-4 mt-5">
             <div class="col-sm-12 d-flex justify-content-center">
-                <a href="{{ route('employee.RegisterProduct') }}" class="botonNew">Registrar producto</a>
+                <a href="{{ route('Product') }}" class="botonNew">Registrar producto</a>
             </div>
             <div class="col-sm-12 d-flex justify-content-center">
                 <a href="{{ route('employee.RecordSale') }}" class="botonNew">Registrar venta</a>

@@ -10,19 +10,13 @@ class EmployeeController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['auth','user']);
+        $this->middleware(['auth','user','disable_back']);
     }
 
 
     public function index()
     {
         return view('employee.index');
-    }
-
-    // Registar producto
-    public function registerProduc()
-    {
-        return view('employee.registerP');
     }
 
     public function recordSale()
