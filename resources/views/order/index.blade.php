@@ -4,14 +4,16 @@
 <div class="container">
 
 @if(Session::has('mensaje'))
-    <div class="alert alert-success" role="alert">
-            {{ Session::get('mensaje') }}  
+    <div class="alert alert-success d-flex justify-content-between align-items-center" role="alert">
+        {{ Session::get('mensaje') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>  
     </div>
 @endif
 
 
 
     <div class="row mb-4 d-flex justify-content-start">
+        <h3>Pedidos pendientes</h3>
 
         @php
 

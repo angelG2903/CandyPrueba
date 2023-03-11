@@ -37,7 +37,7 @@
                 <div class="list-group list-group-flush mt-3">
 
                     <a href="{{ route('Product.create') }}" class="list-group-item  fw-bold"><i class="fa-solid fa-cake-candles me-2"></i>Registrar Pastel</a>
-                    <a class="list-group-item  fw-bold mt-2" data-bs-toggle="modal" data-bs-target="#vela"><i class="bi bi-plus-circle-fill me-2"></i>Registrar Velitas</a>
+                    <a href="{{ route('Product.createC') }}" class="list-group-item  fw-bold mt-2"><i class="bi bi-plus-circle-fill me-2"></i>Registrar Velitas</a>
 
                 </div>
             </div>

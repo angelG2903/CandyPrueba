@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cake;
+use App\Models\Candle;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,8 @@ class RegisterProductController extends Controller
     public function index()
     {
         $dataCake['cakes']=Cake::paginate();
-        return view('register.index', $dataCake);
+        $dataCandle['candles']=Candle::paginate();
+        return view('register.index',$dataCake, $dataCandle);
         
         // return view('register.index');
     }
@@ -45,7 +47,6 @@ class RegisterProductController extends Controller
             'sabor'=>'required',
             'tamanio'=>'required',
             'etiqueta'=>'required',
-            'sabor'=>'required',
             'precio'=>'required|numeric|decimal:0,2',
             'cantidad'=>'required',
             
@@ -102,7 +103,6 @@ class RegisterProductController extends Controller
             'sabor'=>'required',
             'tamanio'=>'required',
             'etiqueta'=>'required',
-            'sabor'=>'required',
             'precio'=>'required|numeric|decimal:0,2',
             
         ];
@@ -128,9 +128,104 @@ class RegisterProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        Cake::destroy($id);
+
+        return redirect('Product')->with('mesaje','Pastel eliminado');
     }
+
+
+    // Funciones para las velitas --------------------------------------------------------------------
+
+    // vista crear
+    public function createC()
+    {
+
+        $user = Auth::id();
+
+        return view('register.createC', compact('user'));
+    }
+
+    // Guardar 
+    public function storeC(Request $request)
+    {
+
+        $campos=[
+            'nombre'=>'required',
+            'precio'=>'required|numeric|decimal:0,2',
+            'cantidad'=>'required',
+            
+        ];
+
+        $mensaje=[
+            'required'=>'El campo :attribute es obligatorio.',
+            // 'max'=>'El nombre es demaciado largo',
+            // 'horaEntrega.required'=>'La la hora es requerida',
+
+        ];
+
+        $this->validate($request, $campos,$mensaje);
+
+
+        $datacandle = request()->except('_token','cantidad');
+
+        // Cantidad de veses que se ingresaran pasteles
+        $data = request('cantidad');
+
+        for ($i=0; $i < $data; $i++) { 
+            Candle::create($datacandle);
+        }
+
+        // return response()->json($data);
+        return redirect()->route('Product')->with('mensaje','Velita registrada con éxito');
+        
+    }
+
+    // mostrar la información del id velita
+    public function editC($id)
+    {
+        $datacandle = Candle::find($id);
+
+        return view('register.editC', compact('datacandle'));
+    }
+
+    // Actualizar información 
+    public function updateC(Request $request, $id)
+    {
+        $campos=[
+            'sabor'=>'required',
+            'tamanio'=>'required',
+            'etiqueta'=>'required',
+            'precio'=>'required|numeric|decimal:0,2',
+            
+        ];
+
+        $mensaje=[
+            'required'=>'El campo :attribute es obligatorio.',
+            // 'max'=>'El nombre es demaciado largo',
+            // 'horaEntrega.required'=>'La la hora es requerida',
+
+        ];
+
+        $this->validate($request, $campos,$mensaje);
+
+        $datacandle = request()->except('_token','_method');
+
+        Candle::where('id','=',$id)->update($datacandle);
+
+
+        return redirect()->route('Product')->with('mensaje','Velita editada con éxito');
+
+    }
+
+    // Eliminar
+    public function destroyC($id)
+    {
+        Candle::destroy($id);
+
+        return redirect('Product')->with('mesaje','Velita eliminada');
+    }
+
 
 }

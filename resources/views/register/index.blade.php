@@ -45,14 +45,21 @@
                         <td>
                             <div class="d-flex justify-content-center">
                                 <a href="{{ route('Product.edit',$cake->id) }}" class="f-icon-edit mx-2"><i class="bi bi-pencil"></i></a>
-                                <a class="f-icon-delete"><i class="bi bi-trash"></i></a>
+                                <!-- <a class="f-icon-delete"><i class="bi bi-trash"></i></a> -->
+                                <form action="{{ route('Product.destroy',$cake ->id)}}" method="post">
+                                    @csrf
+                                    {{ method_field('DELETE') }}
+                                    <!-- <button class="f-icon-delete" type="submit" onclick="return confirm('¿Quieres borrar')"><i class="bi bi-trash"></i></button> -->
+                                    <!-- <input type="submit" onclick="return confirm('¿Quieres borrar')"> -->
+                                    <button type="submit" class="f-icon-delete" style="border: 0;" onclick="return confirm('¿Quieres borrar')"><i class="bi bi-trash"></i></button>
+                                </form>
 
                             </div>
                         </td>
                     </tr>
                     @php
-                        $cont++;
-                        $total+= ($cake -> precio);
+                    $cont++;
+                    $total+= ($cake -> precio);
                     @endphp
                     @endforeach
                     <tr class="color-footer-b">
@@ -80,33 +87,41 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+
+                    $contC = 1;
+                    $totalC = 0;
+
+                    @endphp
+                    @foreach( $candles as $candle )
                     <tr class="color-border-b">
-                        <th scope="row">1</th>
-                        <td>Velita Número</td>
-                        <td>20</td>
+                        <th scope="row">{{$contC}}</th>
+                        <td>{{ $candle -> nombre }}</td>
+                        <td>{{ $candle -> precio }}</td>
                         <td>
                             <div class="d-flex justify-content-center">
-                                <a class="f-icon-edit mx-2"><i class="bi bi-pencil"></i></a>
-                                <a class="f-icon-delete"><i class="bi bi-trash"></i></a>
+                                <a href="{{ route('Product.editC',$candle->id) }}" class="f-icon-edit mx-2"><i class="bi bi-pencil"></i></a>
+
+                                <form action="{{ route('Product.destroyC',$candle ->id)}}" method="post">
+                                    @csrf
+                                    {{ method_field('DELETE') }}
+                                    <!-- <button class="f-icon-delete" type="submit" onclick="return confirm('¿Quieres borrar')"><i class="bi bi-trash"></i></button> -->
+                                    <!-- <input type="submit" onclick="return confirm('¿Quieres borrar')"> -->
+                                    <button type="submit" class="f-icon-delete" style="border: 0;" onclick="return confirm('¿Quieres borrar')"><i class="bi bi-trash"></i></button>
+                                </form>
 
                             </div>
                         </td>
                     </tr>
-                    <tr class="color-border-b">
-                        <th scope="row">2</th>
-                        <td>Vela Magi</td>
-                        <td>15</td>
-                        <td>
-                            <div class="d-flex justify-content-center">
-                                <a class="f-icon-edit mx-2"><i class="bi bi-pencil"></i></a>
-                                <a class="f-icon-delete"><i class="bi bi-trash"></i></a>
-
-                            </div>
-                        </td>
-                    </tr>
+                
+                    @php
+                    $contC++;
+                    $totalC+= ($candle -> precio);
+                    @endphp
+                    @endforeach
                     <tr class="color-footer-b">
                         <th scope="row" colspan="2">Total</th>
-                        <td colspan="2" class="fw-bold">35</td>
+                        <td colspan="2" class="fw-bold">{{$totalC}}</td>
                     </tr>
                 </tbody>
             </table>

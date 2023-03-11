@@ -58,6 +58,14 @@ Route::get('Product/create',[\App\Http\Controllers\RegisterProductController::cl
 Route::post('Product/store',[\App\Http\Controllers\RegisterProductController::class, 'store'])->name('Product.store');
 Route::get('Product/{id}/edit',[\App\Http\Controllers\RegisterProductController::class, 'edit'])->name('Product.edit');
 Route::patch('Product/{id}',[\App\Http\Controllers\RegisterProductController::class, 'update'])->name('Product.update');
+Route::delete('Product/{id}',[\App\Http\Controllers\RegisterProductController::class, 'destroy'])->name('Product.destroy');
+
+Route::get('Product/createC',[\App\Http\Controllers\RegisterProductController::class, 'createC'])->name('Product.createC');
+Route::post('Product/storeC',[\App\Http\Controllers\RegisterProductController::class, 'storeC'])->name('Product.storeC');
+Route::get('ProductC/{id}/edit',[\App\Http\Controllers\RegisterProductController::class, 'editC'])->name('Product.editC');
+Route::patch('ProductC/{id}',[\App\Http\Controllers\RegisterProductController::class, 'updateC'])->name('Product.updateC');
+Route::delete('ProductC/{id}',[\App\Http\Controllers\RegisterProductController::class, 'destroyC'])->name('Product.destroyC');
+
 
 
 
