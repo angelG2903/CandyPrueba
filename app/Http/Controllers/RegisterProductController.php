@@ -6,21 +6,25 @@ use App\Models\Cake;
 use App\Models\Candle;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class RegisterProductController extends Controller
 {
 
     public function __construct()
-     {
+    {
         $this->middleware(['auth','user','disable_back']);
-     }
+    }
 
 
     public function index()
     {
-        $dataCake['cakes']=Cake::paginate();
-        $dataCandle['candles']=Candle::paginate();
+        // $dataCake['cakes']=Cake::paginate();
+        // $dataCandle['candles']=Candle::paginate();
+
+        $dataCake['cakes'] = DB::select('select * from cakes');
+        $dataCandle['candles'] = DB::select('select * from candles');
         return view('register.index',$dataCake, $dataCandle);
         
         // return view('register.index');
@@ -132,7 +136,7 @@ class RegisterProductController extends Controller
     {
         Cake::destroy($id);
 
-        return redirect('Product')->with('mesaje','Pastel eliminado');
+        return redirect('Product')->with('mensaje','Pastel eliminado con éxito');
     }
 
 
@@ -160,8 +164,6 @@ class RegisterProductController extends Controller
 
         $mensaje=[
             'required'=>'El campo :attribute es obligatorio.',
-            // 'max'=>'El nombre es demaciado largo',
-            // 'horaEntrega.required'=>'La la hora es requerida',
 
         ];
 
@@ -194,17 +196,13 @@ class RegisterProductController extends Controller
     public function updateC(Request $request, $id)
     {
         $campos=[
-            'sabor'=>'required',
-            'tamanio'=>'required',
-            'etiqueta'=>'required',
+            'nombre'=>'required',
             'precio'=>'required|numeric|decimal:0,2',
             
         ];
 
         $mensaje=[
             'required'=>'El campo :attribute es obligatorio.',
-            // 'max'=>'El nombre es demaciado largo',
-            // 'horaEntrega.required'=>'La la hora es requerida',
 
         ];
 
@@ -224,7 +222,7 @@ class RegisterProductController extends Controller
     {
         Candle::destroy($id);
 
-        return redirect('Product')->with('mesaje','Velita eliminada');
+        return redirect('Product')->with('mensaje','Velita eliminada');
     }
 
 

@@ -41,7 +41,7 @@
 
                         
                         <button class=" dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-person-fill"></i>Angel
+                            <i class="bi bi-person-fill"></i>{{Auth::user()->name}}
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="{{ route('employee') }}"><i class="bi bi-house"></i>Inicio</a></li>
@@ -73,6 +73,8 @@
     <!-- <footer class="f"></footer> -->
     <footer></footer>
 
+    
+
     <script>
         var el = document.getElementById("wrapper");
         var des = document.getElementById("desap"); /* para candy */
@@ -82,6 +84,8 @@
             el.classList.toggle("toggled");
         };
     </script>
+
+    @yield('js')
     
 </body>
 

@@ -142,6 +142,8 @@ class OrderController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Order::destroy($id);
+
+        return redirect('OrderI')->with('mensaje','Pedido eliminado con éxito');
     }
 }

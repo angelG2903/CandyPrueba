@@ -15,7 +15,7 @@
                 <a href="{{ route('Product') }}" class="botonNew">Registrar producto</a>
             </div>
             <div class="col-sm-12 d-flex justify-content-center">
-                <a href="{{ route('employee.RecordSale') }}" class="botonNew">Registrar venta</a>
+                <a href="{{ route('Sale') }}" class="botonNew">Registrar venta</a>
 
             </div>
 

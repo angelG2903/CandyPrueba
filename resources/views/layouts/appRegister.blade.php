@@ -35,10 +35,22 @@
                     <p class="fs-3 my-2 ti">Opciones</p>
                 </div>
                 <div class="list-group list-group-flush mt-3">
-
-                    <a href="{{ route('Product.create') }}" class="list-group-item  fw-bold"><i class="fa-solid fa-cake-candles me-2"></i>Registrar Pastel</a>
-                    <a href="{{ route('Product.createC') }}" class="list-group-item  fw-bold mt-2"><i class="bi bi-plus-circle-fill me-2"></i>Registrar Velitas</a>
-
+                    <!-- Rutas para registrar producto -->
+                    @if (Route::currentRouteName() == 'Product')
+                        <a href="{{ route('Product.create') }}" class="list-group-item  fw-bold"><i class="fa-solid fa-cake-candles me-2"></i>Registrar Pastel</a>
+                        <a href="{{ route('Product.createC') }}" class="list-group-item  fw-bold mt-2"><i class="bi bi-plus-circle-fill me-2"></i>Registrar Velitas</a>        
+                    @endif
+                    @if(Route::currentRouteName() == 'Product.create' || Route::currentRouteName() == 'Product.createC' || Route::currentRouteName() == 'Product.edit' || Route::currentRouteName() == 'Product.editC')
+                        <a href="{{ route('Product') }}" class="list-group-item  fw-bold"><i class="fa-solid fa-cake-candles me-2"></i>Producto registrado</a>
+                    @endif
+                    <!-- Rutas para registar venta -->
+                    @if (Route::currentRouteName() == 'Sale')
+                        <a href="{{ route('Sale.create') }}" class="list-group-item  fw-bold"><i class="fa-solid fa-cake-candles me-2"></i>Registrar Pastel</a>
+                        <a href="{{ route('Sale.createC') }}" class="list-group-item  fw-bold mt-2"><i class="bi bi-plus-circle-fill me-2"></i>Registrar Velitas</a>        
+                    @endif
+                    @if(Route::currentRouteName() == 'Sale.create' || Route::currentRouteName() == 'Sale.createC')
+                        <a href="{{ route('Sale') }}" class="list-group-item  fw-bold"><i class="fa-solid fa-cake-candles me-2"></i>Producto vendido</a>
+                    @endif
                 </div>
             </div>
             <!-- /#sidebar-wrapper -->
@@ -56,7 +68,7 @@
                         <div class="dropdown me-sm-2 me-lg-3 "> <!-- checar -->
 
                             <button class=" dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person-fill"></i>Angel
+                                <i class="bi bi-person-fill"></i>{{Auth::user()->name}}
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="{{ route('employee') }}"><i class="bi bi-house"></i>Inicio</a></li>
@@ -103,6 +115,7 @@
             el.classList.toggle("toggled");
         };
     </script>
+    @yield('js')
 
 </body>
 

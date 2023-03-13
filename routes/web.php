@@ -51,6 +51,7 @@ Route::get('Order/create',[App\Http\Controllers\OrderController::class, 'create'
 Route::post('Order/store',[App\Http\Controllers\OrderController::class, 'store'])->name('Order.store');
 Route::get('Order/{id}/edit',[App\Http\Controllers\OrderController::class, 'edit'])->name('Order.edit');
 Route::patch('Order/{id}',[App\Http\Controllers\OrderController::class, 'update'])->name('Order.update');
+Route::delete('Order/{id}',[\App\Http\Controllers\OrderController::class, 'destroy'])->name('Order.destroy');
 // });
 
 Route::get('Product',[\App\Http\Controllers\RegisterProductController::class, 'index'])->name('Product');
@@ -66,6 +67,16 @@ Route::get('ProductC/{id}/edit',[\App\Http\Controllers\RegisterProductController
 Route::patch('ProductC/{id}',[\App\Http\Controllers\RegisterProductController::class, 'updateC'])->name('Product.updateC');
 Route::delete('ProductC/{id}',[\App\Http\Controllers\RegisterProductController::class, 'destroyC'])->name('Product.destroyC');
 
+// rutas venta pastel
+Route::get('Sale',[\App\Http\Controllers\RegisterSaleController::class, 'index'])->name('Sale');
+Route::get('Sale/create',[\App\Http\Controllers\RegisterSaleController::class, 'create'])->name('Sale.create');
+Route::patch('Sale/{id}',[\App\Http\Controllers\RegisterSaleController::class, 'update'])->name('Sale.update');
+Route::patch('SaleQ/{id}',[\App\Http\Controllers\RegisterSaleController::class, 'updateQ'])->name('Sale.updateQ');
+
+// velitas venta
+Route::get('Sale/createC',[\App\Http\Controllers\RegisterSaleController::class, 'createC'])->name('Sale.createC');
+Route::patch('SaleC/{id}',[\App\Http\Controllers\RegisterSaleController::class, 'updateC'])->name('Sale.updateC');
+Route::patch('SaleCQ/{id}',[\App\Http\Controllers\RegisterSaleController::class, 'updateCQ'])->name('Sale.updateCQ');
 
 
 
