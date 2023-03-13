@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
@@ -24,8 +25,9 @@ class OrderController extends Controller
 
     public function index()
     {
-        $dataOrder['orders']=Order::paginate();
-        return view('order.index', $dataOrder);
+        $user = Auth::id();
+        $dataOrder['orders'] = DB::select('select * from orders where status = ?', ['disponible']);
+        return view('order.index', $dataOrder, compact('user'));
     }
 
     /**
@@ -140,10 +142,38 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    /* public function destroy(string $id)
     {
         Order::destroy($id);
 
         return redirect('OrderI')->with('mensaje','Pedido eliminado con éxito');
+    } */
+
+    // Cancelar pedido
+    public function cancel(Request $request, $id)
+    {
+        
+        $dataOrder = request()->except('_token','_method');
+
+        Order::where('id','=',$id)->update($dataOrder);
+
+
+        return redirect()->route('OrderI')->with('mensaje','Pedido cancelado con éxito');
+
     }
+
+    // pagar pay order
+    public function payOrder(Request $request, $id)
+    {
+        
+        $dataOrder = request()->except('_token','_method');
+
+        Order::where('id','=',$id)->update($dataOrder);
+
+
+        return redirect()->route('OrderI')->with('mensaje','Pedido entregado con éxito');
+
+    }
+
+
 }

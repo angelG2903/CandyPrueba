@@ -10,6 +10,7 @@ class Cake extends Model
     
     static $rules = [
         'id_user' => 'required',
+        'id_sale' => 'null',
         'sabor' => 'required',
         'tamanio' => 'required',
         'etiqueta' => 'required',
@@ -19,7 +20,7 @@ class Cake extends Model
 
     protected $perPage = 20;
 
-    protected $fillable = ['id_user','sabor','tamanio','etiqueta','precio','status'];
+    protected $fillable = ['id_user','id_sale','sabor','tamanio','etiqueta','precio','status'];
 
     public function user()
     {

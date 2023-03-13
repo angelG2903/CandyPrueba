@@ -57,7 +57,8 @@
                                         <form method="POST" action="{{ route('Sale.updateC', $candle->id) }}" role="form" enctype="multipart/form-data" class="d-none needs-validation">
                                             @csrf
                                             {{ method_field('PATCH') }}
-                                            <input class="d-none" type="number" name="precio" value="15">
+                                            <input class="d-none" type="number" name="id_sale" value="{{$user}}">
+                                            <input class="d-none" type="text" name="status" value="vendido">
                                             <button type="submit" class="btn-blue-boton btn-color-azul px-3 me-1">Agregar</button>
 
                                         </form>

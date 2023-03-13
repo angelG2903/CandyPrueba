@@ -23,8 +23,9 @@ class RegisterProductController extends Controller
         // $dataCake['cakes']=Cake::paginate();
         // $dataCandle['candles']=Candle::paginate();
 
-        $dataCake['cakes'] = DB::select('select * from cakes');
-        $dataCandle['candles'] = DB::select('select * from candles');
+        $dataCake['cakes'] = DB::select('select * from cakes where status = ?',['disponible']);
+        $dataCandle['candles'] = DB::select('select * from candles where status = ?',['disponible']);
+        
         return view('register.index',$dataCake, $dataCandle);
         
         // return view('register.index');
@@ -78,14 +79,6 @@ class RegisterProductController extends Controller
         // return response()->json($data);
         return redirect()->route('Product')->with('mensaje','Pastel registrado con éxito');
         
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
     }
 
     /**
@@ -211,7 +204,6 @@ class RegisterProductController extends Controller
         $datacandle = request()->except('_token','_method');
 
         Candle::where('id','=',$id)->update($datacandle);
-
 
         return redirect()->route('Product')->with('mensaje','Velita editada con éxito');
 

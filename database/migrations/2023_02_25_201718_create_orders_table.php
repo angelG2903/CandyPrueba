@@ -18,6 +18,7 @@ return new class extends Migration
 
             // Dato externo
             $table->bigInteger('id_user')->unsigned();
+            $table->integer('id_sale')->default(0)->nullable();
             $table->string('nombre');
             $table->string('telefono',10);
             $table->string('direccion');
@@ -29,7 +30,7 @@ return new class extends Migration
             $table->float('anticipo');
             $table->date('fechaEntrega');
             $table->time('horaEntrega');
-            $table->boolean('status')->default(true)->nullable();
+            $table->string('status')->default('disponible')->nullable();
 
             $table->timestamps();
 

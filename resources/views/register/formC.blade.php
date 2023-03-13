@@ -7,12 +7,13 @@
 
 <div class="mb-3">
     <label for="nombre" class="form-label">Nombre</label>
-    <select class="form-select borde" aria-label="Default select example" name="nombre" id="nombre" required>
+    <select class="form-select borde " aria-label="Default select example" name="nombre" id="nombre" required>
         <option selected>{{ isset($datacandle-> nombre)?$datacandle-> nombre:'Seleccione el nombre'}}</option>
         <option value="Vela número" {{ old('nombre') == 'Vela número' ? 'selected' :old('nombre') }}>Vela número</option>
         <option value="Vela Magi" {{ old('nombre') == 'Vela Magi' ? 'selected' :old('nombre') }}>Vela Magi</option>
         
     </select>
+    
 </div>
 <div class="mb-3">
     <label for="precio" class="form-label">Precio</label>

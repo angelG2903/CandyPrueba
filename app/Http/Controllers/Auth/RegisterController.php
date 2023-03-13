@@ -46,7 +46,6 @@ class RegisterController extends Controller
         if (auth()->user()->rol == 'user') {
             return '/employee'; 
         }
-        // dd('redirectPath');
         return '/register'; 
         
     }

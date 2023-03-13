@@ -17,11 +17,12 @@ return new class extends Migration
             $table->id();
 
             $table->bigInteger('id_user')->unsigned();
+            $table->integer('id_sale')->default(0)->nullable();
             $table->string('sabor');
             $table->string('tamanio');
             $table->string('etiqueta');
             $table->float('precio');
-            $table->boolean('status')->default(true)->nullable();
+            $table->string('status')->default('disponible')->nullable();
             $table->timestamps();
 
             $table->foreign('id_user')->references('id')->on('users')->onDelete("cascade");

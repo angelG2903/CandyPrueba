@@ -22,8 +22,8 @@ class RegisterSaleController extends Controller
     {
         
         // $dataCake['cakes']=Cake::paginate();
-        $dataCake['cakes'] = DB::select('select * from cakes where etiqueta = ?',['Martes']);
-        $dataCandle['candles'] = DB::select('select * from candles where precio = ?',[15]);
+        $dataCake['cakes'] = DB::select('select * from cakes where status = ?',['vendido']);
+        $dataCandle['candles'] = DB::select('select * from candles where status = ?',['vendido']);
         // $dataCandle['candles']=Candle::paginate();
 
         $date = Carbon::now();
@@ -36,7 +36,7 @@ class RegisterSaleController extends Controller
     {
 
         $user = Auth::id();
-        $dataCake['cakes'] = DB::select('select * from cakes where etiqueta = ?',['Lunes']);
+        $dataCake['cakes'] = DB::select('select * from cakes where status = ?',['disponible']);
 
         return view('sale.create', compact('user'), $dataCake);
     }
@@ -71,7 +71,7 @@ class RegisterSaleController extends Controller
     {
 
         $user = Auth::id();
-        $dataCandle['candles'] = DB::select('select * from candles where precio = ?',[25]);
+        $dataCandle['candles'] = DB::select('select * from candles where status = ?',['disponible']);
 
         return view('sale.createC', compact('user'), $dataCandle);
     }

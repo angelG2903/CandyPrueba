@@ -9,6 +9,7 @@ class Candle extends Model
 {
     static $rules = [
         'id_user' => 'required',
+        'id_sale' => 'null',
         'nombre' => 'required',
         'precio' => 'required',
         'status' => 'null',
@@ -16,7 +17,7 @@ class Candle extends Model
 
     protected $perPage = 20;
 
-    protected $fillable = ['id_user','nombre','precio','status'];
+    protected $fillable = ['id_user','id_sale','nombre','precio','status'];
 
 
     public function user()

@@ -3,15 +3,15 @@
 @section('content')
 <div class="container">
 
-    @if(Session::has('mensaje'))
+    <!-- @if(Session::has('mensaje'))
     <div class="alert alert-success d-flex justify-content-between align-items-center" role="alert">
         {{ Session::get('mensaje') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    @endif
+    @endif -->
 
 
-
+@if(!empty($orders))
     <div id="formulario" class="row mb-4 d-flex justify-content-start">
         <h3>Pedidos pendientes</h3>
 
@@ -125,15 +125,18 @@
                         <p>El cliente debe pagar: {{ ($order->precio) - ($order->anticipo)  }}</p>
                         <div class="d-flex justify-content-between mt-4 mb-2">
 
-                            <!-- <form action="{{ route('Order.destroy',$order ->id)}}"  method="post">
-                                @csrf
-                                {{ method_field('DELETE') }}
-
-                                <button type="submit" class="btn-blue-boton btn-color-rojo" style="border: 0;">Si, eliminalo!</button>
-
-                            </form> -->
                             <button type="button" class="btn-blue-boton btn-color-rojo" data-bs-dismiss="modal">Cancelar acción!</button>
-                            <button type="button" class="btn-blue-boton btn-color-verde" data-bs-dismiss="modal">Pagar</button>
+                            
+                            <form method="post" action="{{ route('Order.payOrder', $order->id) }}" role="form" enctype="multipart/form-data" class="needs-validation">
+                                @csrf
+                                {{ method_field('PATCH') }}
+                        
+                                <input class="d-none" type="number" name="id_sale" value="{{$user}}">
+                                <input class="d-none" type="text" name="status" value="realizado">
+                                <button type="submit" class="btn-blue-boton btn-color-verde">Si, Pagar!</button>
+
+                            </form>
+                            
                         </div>
                     </div>
 
@@ -147,7 +150,7 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content" style="background: transparent;border: none;">
                     <div class="modal-header color-navbar br-modal-top">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">¿Estas seguro de eliminar el pedido?</h1>
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">¿Estas seguro de cancelar el pedido?</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body color-modal br-modal-bot">
@@ -160,11 +163,15 @@
                         <div class="d-flex justify-content-between mt-4 mb-2">
 
                             <button type="button" class="btn-blue-boton btn-color-rojo" data-bs-dismiss="modal">Cancelar acción!</button>
-                            <form action="{{ route('Order.destroy',$order ->id)}}"  method="post">
+                            
+                            <form method="post" action="{{ route('Order.cancel', $order->id) }}" role="form" enctype="multipart/form-data" class="needs-validation">
                                 @csrf
-                                {{ method_field('DELETE') }}
+                                {{ method_field('PATCH') }}
 
-                                <button type="submit" class="btn-blue-boton btn-color-azul" style="border: 0;">Si, eliminalo!</button>
+                                <input class="d-none" type="number" name="id_sale" value="{{$user}}">
+                                <input class="d-none" type="text" name="status" value="cancelado">
+                                <button type="submit" class="btn-blue-boton btn-color-azul">Si, cancelar!</button>
+
                             </form>
                             
                         </div>
@@ -177,7 +184,9 @@
         @endforeach
 
     </div>
-
+@else
+    <h3>No hay pedidos registrados</h3>
+@endif
 
 </div>
 
@@ -188,7 +197,7 @@
 @section('js')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     // const formu = document.getElementById("formulario");
 
     function formularios(event) {
@@ -221,7 +230,7 @@
 
     }
 
-</script>
+</script> -->
 
 @if(Session('mensaje') == 'Pedido registrado con éxito')
 <script>
@@ -233,10 +242,20 @@
 </script>
 @endif
 
-@if(Session('mensaje') == 'Pedido eliminado con éxito')
+@if(Session('mensaje') == 'Pedido entregado con éxito')
 <script>
     Swal.fire(
-        'Pedido eliminado con éxito',
+        'Pedido entregado con éxito',
+        '',
+        'success'
+    )
+</script>
+@endif
+
+@if(Session('mensaje') == 'Pedido cancelado con éxito')
+<script>
+    Swal.fire(
+        'Pedido cancelado con éxito',
         '',
         'success'
     )

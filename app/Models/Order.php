@@ -11,6 +11,7 @@ class Order extends Model
 
     static $rules = [
         'id_user' => 'required',
+        'id_sale' => 'null',
         'nombre' => 'required',
         'telefono' => 'required',
         'direccion' => 'required',
@@ -27,7 +28,7 @@ class Order extends Model
 
     protected $perPage = 20;
 
-    protected $fillable = ['id_user','nombre','telefono','direccion','sabor','relleno','rebanadas','decoracion','precio','anticipo','fechaEntrega','horaEntrega','status'];
+    protected $fillable = ['id_user','id_sale','nombre','telefono','direccion','sabor','relleno','rebanadas','decoracion','precio','anticipo','fechaEntrega','horaEntrega','status'];
 
 
     public function user()

@@ -52,6 +52,8 @@ Route::post('Order/store',[App\Http\Controllers\OrderController::class, 'store']
 Route::get('Order/{id}/edit',[App\Http\Controllers\OrderController::class, 'edit'])->name('Order.edit');
 Route::patch('Order/{id}',[App\Http\Controllers\OrderController::class, 'update'])->name('Order.update');
 Route::delete('Order/{id}',[\App\Http\Controllers\OrderController::class, 'destroy'])->name('Order.destroy');
+Route::patch('OrderI/{id}',[App\Http\Controllers\OrderController::class, 'cancel'])->name('Order.cancel');
+Route::patch('OrderPay/{id}',[App\Http\Controllers\OrderController::class, 'payOrder'])->name('Order.payOrder');
 // });
 
 Route::get('Product',[\App\Http\Controllers\RegisterProductController::class, 'index'])->name('Product');

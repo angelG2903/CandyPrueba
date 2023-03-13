@@ -17,9 +17,10 @@ return new class extends Migration
             $table->id();
 
             $table->bigInteger('id_user')->unsigned();
+            $table->integer('id_sale')->default(0)->nullable();
             $table->string('nombre');
             $table->float('precio');
-            $table->boolean('status')->default(true)->nullable();
+            $table->string('status')->default('disponible')->nullable();
 
             $table->timestamps();
 

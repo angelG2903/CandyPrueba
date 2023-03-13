@@ -54,6 +54,7 @@
                                 </td>
                             </tr>
 
+                            <!-- borrar venta -->
                             <div class="modal fade" id="borrar-{{$cake ->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content" style="background: transparent;border: none;">
@@ -76,8 +77,9 @@
                                                 <form method="POST" action="{{ route('Sale.updateQ', $cake->id) }}" role="form" enctype="multipart/form-data" class="d-none needs-validation">
                                                     @csrf
                                                     {{ method_field('PATCH') }}
-                                            
-                                                    <input class="d-none" type="text" name="etiqueta" value="Lunes">
+
+                                                    <input class="d-none" type="number" name="id_sale" value="0">
+                                                    <input class="d-none" type="text" name="status" value="disponible">
                                                     <button type="submit" class="btn-blue-boton btn-color-azul px-3 me-1">Si, cancelar!</button>
                                                 </form>
                                             </div>
@@ -157,7 +159,8 @@
                                                     @csrf
                                                     {{ method_field('PATCH') }}
                                             
-                                                    <input class="d-none" type="number" name="precio" value="25">
+                                                    <input class="d-none" type="number" name="id_sale" value="0">
+                                                    <input class="d-none" type="text" name="status" value="disponible">
                                                     <button type="submit" class="btn-blue-boton btn-color-azul px-3 me-1">Si, cancelar!</button>
 
                                                 </form>
@@ -204,7 +207,7 @@
         </div>
         
     @else
-        <h3>No hay producto registrado</h3>
+        <h3>No hay producto vendido</h3>
     @endif
 
 </div>
