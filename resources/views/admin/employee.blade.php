@@ -7,7 +7,8 @@
 
     <div class="row mt-4 me-1">
         <div class="d-flex justify-content-end">
-            <a href="" class="btn-blue-boton btn-color-azul" data-bs-toggle="modal" data-bs-target="#registrarUsuarios">Agregar usuario</a>
+            <!-- <a href="" class="btn-blue-boton btn-color-azul" data-bs-toggle="modal" data-bs-target="#registrarUsuarios">Agregar usuario</a> -->
+            <a href="{{ route('register') }}" class="btn-blue-boton btn-color-azul" >Agregar usuario</a>
         </div>
 
     </div>

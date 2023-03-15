@@ -15,6 +15,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/d153a032a1.js" crossorigin="anonymous"></script>
+    
 
     <!-- Mis estilos -->
     <link rel="stylesheet" href="{{ Vite::asset('resources/css/style.css') }}">

@@ -26,4 +26,11 @@ class Cake extends Model
     {
         return $this->hasOne('App\Models\User', 'id', 'id_user');
     }
+
+    // Query Scope
+    public function scopeDisponible($query)
+    {
+        // if($name)
+            return $query->where('status', '=', 'disponible');
+    }
 }

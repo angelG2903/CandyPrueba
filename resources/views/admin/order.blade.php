@@ -7,27 +7,28 @@
 
     <div class="row d-flex justify-content-center mt-4 ">
         <div class="col-10">
-            <form>
+            <form action="{{route('Order')}}" method="get">
                 <div class="row">
                     <div class="col-sm-12 col-lg-auto">
                         <label for="opciones" class="form-label">Opciones</label>
                     </div>
 
                     <div class="col-sm-12 col-md-6 col-lg-5">
-                        <select class="form-select borde" aria-label="Default select example" id="opciones" required>
-                            <option selected>Seleccione una opción</option>
-                            <option value="1">Pedidos pendientes</option>
-                            <option value="2">Pedidos realizados</option>
+                        <select class="form-select borde" aria-label="Default select example" id="opciones" name="buscar">
+                            <option value="">Selecciona una opcion</option>
+                            <option value="disponible" {{ old('buscar') == 'disponible' ? 'selected' :old('buscar') }}>Pedidos pendientes</option>
+                            <option value="realizado" {{ old('buscar') == 'realizado' ? 'selected' :old('buscar') }}>Pedidos realizados</option>
+                            <option value="cancelado" {{ old('buscar') == 'cancelado' ? 'selected' :old('buscar') }}>Pedidos cancelados</option>
                         </select>
                     </div>
 
                     <div class="d-none d-md-block col-md-auto col-lg-auto">
-                        <button type="submit" class="btn-blue-boton btn-color-azul">Submit</button>
+                        <button type="submit" class="btn-blue-boton btn-color-azul">Buscar</button>
                     </div>
                 </div>
                 <div class="row mt-2 ">
                     <div class="col-12 d-md-none d-flex justify-content-center">
-                        <button type="submit" class="btn-blue-boton btn-color-azul">Submit</button>
+                        <button type="submit" class="btn-blue-boton btn-color-azul">Buscar</button>
                     </div>
                 </div>
 
@@ -37,47 +38,66 @@
 
 
     </div>
+    
+    
 
-    <!-- pedidos -->
-    <div class="row mt-5 d-flex justify-content-center">
+    @if(!empty($orders))
+        @if($buscar == 'disponible')
+            <h1>Pedidos pendientes</h1>
+        @endif
+        @if($buscar == 'realizado')
+            <h1>Pedidos realizados</h1>
+        @endif
+        @if($buscar == 'cancelado')
+            <h1>Pedidos cancelados</h1>
+        @endif
+        <!-- pedidos -->
+        @foreach($orders as $order)
+            <div class="row mt-5 d-flex justify-content-center">
 
-        <div class="col-sm-12 col-lg-6">
-            <div class="card text-white" style="max-width: 40rem;">
-                <div class="card-header tarjeta-color-header">
-                    <div class="row">
-                        <div class="col-lg-8">Nombre del cliente</div>
-                        <div class="col-lg-4 d-lg-flex justify-content-end">Precio</div>
+                <div class="col-sm-12 col-lg-6">
+                    <div class="card text-white" style="max-width: 40rem;">
+                        <div class="card-header tarjeta-color-header">
+                            <div class="row">
+                                <div class="col-lg-8">Nombre del cliente: {{ $order->nombre }}</div>
+                                <div class="col-lg-4 d-lg-flex justify-content-end">Precio: {{ $order->precio }}</div>
+                            </div>
+                        </div>
+                        <div class="card-body text-black tarjeta-color-body">
+                            <p class="card-text">Número de teléfono: {{ $order->telefono }}</p>
+                            <p class="card-text">Sabor: {{ $order->sabor }}</p>
+                            <p class="card-text">Relleno: {{ $order->relleno }}</p>
+                            <p class="card-text">Rebanadas: {{ $order->rebanadas }}</p>
+                            <p class="card-text">Decoración: {{ $order->decoracion }}</p>
+                            <p class="card-text">Dirección: {{ $order->direccion }}</p>
+                            <div class="row mb-3">
+                                <div class="col-8">
+                                    <p class="card-text">Fecha de entrega: {{ Carbon\Carbon::parse($order-> fechaEntrega)->format('d-m-Y') }}</p>
+                                </div>
+                                <div class="col-3 ">
+                                    <p class="card-text">Anticipo: {{ $order->anticipo }}</p>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-8">
+                                    <p class="card-text">Hora de entrega: {{ Carbon\Carbon::parse($order-> horaEntrega)->isoFormat('h:m A') }}</p>
+                                </div>
+                                <div class="col-3">
+                                    <p class="card-text">Restan: {{ ($order->precio) - ($order->anticipo)  }}</p>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                </div>
-                <div class="card-body text-black tarjeta-color-body">
-                    <p class="card-text">Número de teléfono</p>
-                    <p class="card-text">Sabor</p>
-                    <p class="card-text">Relleno</p>
-                    <p class="card-text">Rebanadas</p>
-                    <p class="card-text">Decoración</p>
-                    <p class="card-text">Dirección</p>
-                    <div class="row mb-3">
-                        <div class="col-8">
-                            <p class="card-text">Fecha de entrega:</p>
-                        </div>
-                        <div class="col-3 ">
-                            <p class="card-text">Anticipo</p>
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col-8">
-                            <p class="card-text">Hora de entrega:</p>
-                        </div>
-                        <div class="col-3">
-                            <p class="card-text">Restan</p>
-                        </div>
-                    </div>
-
                 </div>
             </div>
-        </div>
-    </div>
+        @endforeach
+    @else
+
+        <h2>No hay pedidos</h2>
+
+    @endif
 
 </div>
 

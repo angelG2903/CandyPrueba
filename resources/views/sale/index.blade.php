@@ -192,15 +192,15 @@
         <div class="row d-flex justify-content-center mt-5 mb-5 mx-2">
 
             <div class="col-sm-12 col-lg-6 total-venta d-flex justify-content-between py-1">
-            @if(!empty($candles) && !empty($cake))
-                <h4 class="mb-0 ps-2">Total: {{$total + $totalC}}</h4>
-            @endif
-            @if(!empty($candles) && empty($cake))
-                <h4 class="mb-0 ps-2">Total: {{$totalC}}</h4>
-            @endif
-            @if(!empty($cake) && empty($candles))
-                <h4 class="mb-0 ps-2">Total: {{$total}}</h4>
-            @endif
+                @if(!empty($candles) && !empty($cakes))
+                    <h4 class="mb-0 ps-2">Total: {{$total + $totalC}}</h4>
+                @endif
+                @if(!empty($candles) && empty($cakes))
+                    <h4 class="mb-0 ps-2">Total: {{$totalC}}</h4>
+                @endif
+                @if(!empty($cakes) && empty($candles))
+                    <h4 class="mb-0 ps-2">Total: {{$total}}</h4>
+                @endif
                 <h4 class="mb-0 pe-2">{{ $date->format('d-m-Y') }}</h4>
             </div>
 
