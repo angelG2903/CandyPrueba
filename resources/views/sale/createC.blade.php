@@ -13,12 +13,12 @@
 
             <h5>Velitas en stock</h5>
             <table class="table table-borderless">
-                <thead class="color-thead-p">
+                <thead class="color-thead-good">
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col" class="bordes-t-l">#</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Precio</th>
-                        <th scope="col"></th>
+                        <th scope="col" class="bordes-t-r"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,7 +35,7 @@
                         <td>{{ $candle -> precio }}</td>
                         <td>
                             <div class="d-flex justify-content-center">
-                                <button type="button" class="btn-blue-boton btn-color-azul px-3 me-1" data-bs-toggle="modal" data-bs-target="#borrar-{{$candle ->id}}">Agregar</button>
+                                <button type="button" class="btn-blue-boton btn-color-azul-b px-3 me-1" data-bs-toggle="modal" data-bs-target="#borrar-{{$candle ->id}}">Agregar</button>
                             </div>
                         </td>
                     </tr>
@@ -78,8 +78,8 @@
                     @endphp
                     @endforeach
                     <tr class="color-footer-b">
-                        <th scope="row" colspan="2">Total</th>
-                        <td colspan="2" class="fw-bold">{{$totalC}}</td>
+                        <th scope="row" colspan="2" class="bordes-b-r">Total</th>
+                        <td colspan="2" class="fw-bold bordes-b-l">{{$totalC}}</td>
                     </tr>
                 </tbody>
             </table>

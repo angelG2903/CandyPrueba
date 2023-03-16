@@ -46,14 +46,14 @@
                 <div class="col-sm-12 col-lg-10 table-responsive-sm">
                     <h5>Pasteles vendidos</h5>
                     <table class="table table-borderless">
-                        <thead class="color-thead-p">
+                        <thead class="color-thead-good">
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col" class="bordes-t-l">#</th>
                                 <th scope="col">Sabor</th>
                                 <th scope="col">Tamaño</th>
                                 <th scope="col">Fecha</th>
                                 <th scope="col">Etiqueta</th>
-                                <th scope="col">Precio</th>
+                                <th scope="col" class="bordes-t-r">Precio</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -77,8 +77,8 @@
                             @endphp
                             @endforeach
                             <tr class="color-footer-b">
-                                <th scope="row" colspan="5">Total</th>
-                                <td class="fw-bold">{{ $total }}</td>
+                                <th scope="row" colspan="5" class="bordes-b-r">Total</th>
+                                <td class="fw-bold bordes-b-l">{{ $total }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -94,11 +94,11 @@
 
                     <h5>Velas vendidas</h5>
                     <table class="table table-borderless">
-                        <thead class="color-thead-p">
+                        <thead class="color-thead-good">
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col" class="bordes-t-l">#</th>
                                 <th scope="col">Nombre</th>
-                                <th scope="col">Precio</th>
+                                <th scope="col" class="bordes-t-r">Precio</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -119,8 +119,8 @@
                             @endphp
                             @endforeach
                             <tr class="color-footer-b">
-                                <th scope="row" colspan="2">Total</th>
-                                <td class="fw-bold">{{ $totalC }}</td>
+                                <th scope="row" colspan="2" class="bordes-b-r">Total</th>
+                                <td class="fw-bold bordes-b-l">{{ $totalC }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -136,12 +136,12 @@
 
                     <h5>Anticipo de pedidos</h5>
                     <table class="table table-borderless">
-                        <thead class="color-thead-p">
+                        <thead class="color-thead-good">
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col" class="bordes-t-l">#</th>
                                 <th scope="col">Nombre del cliente</th>
                                 <th scope="col">Fecha</th>
-                                <th scope="col">Anticipo</th>
+                                <th scope="col" class="bordes-t-r">Anticipo</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -163,8 +163,8 @@
                             @endphp
                             @endforeach
                             <tr class="color-footer-b">
-                                <th scope="row" colspan="3">Total</th>
-                                <td class="fw-bold">{{ $totalO }}</td>
+                                <th scope="row" colspan="3" class="bordes-b-r">Total</th>
+                                <td class="fw-bold bordes-b-l">{{ $totalO }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -208,7 +208,12 @@
             </div>
         </div>
     @else
-        <h3>No hay producto vendido</h3>
+        <div class="row mt-3">
+            <div class="col-12 text-center">
+                <h3>No hay producto vendido</h3>
+            </div>
+        </div>
+        
     @endif
 
 </div>

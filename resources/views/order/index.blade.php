@@ -107,7 +107,7 @@
         <div class="modal fade" id="pagar-{{$order ->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content" style="background: transparent;border: none;">
-                    <div class="modal-header color-navbar br-modal-top">
+                    <div class="modal-header color-thead-good br-modal-top">
                         <h1 class="modal-title fs-5" id="staticBackdropLabel">Verificar los siguientes datos</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
@@ -125,7 +125,7 @@
                         <p>El cliente debe pagar: {{ ($order->precio) - ($order->anticipo)  }}</p>
                         <div class="d-flex justify-content-between mt-4 mb-2">
 
-                            <button type="button" class="btn-blue-boton btn-color-rojo" data-bs-dismiss="modal">Cancelar acción!</button>
+                            <button type="button" class="btn-blue-boton btn-color-rojo" data-bs-dismiss="modal">Cancelar</button>
                             
                             <form method="post" action="{{ route('Order.payOrder', $order->id) }}" role="form" enctype="multipart/form-data" class="needs-validation">
                                 @csrf
@@ -133,7 +133,7 @@
                         
                                 <input class="d-none" type="number" name="id_sale" value="{{$user}}">
                                 <input class="d-none" type="text" name="status" value="realizado">
-                                <button type="submit" class="btn-blue-boton btn-color-verde">Si, Pagar!</button>
+                                <button type="submit" class="btn-blue-boton btn-color-verde">Aceptar</button>
 
                             </form>
                             
@@ -149,7 +149,7 @@
         <div class="modal fade" id="borrar-{{$order ->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content" style="background: transparent;border: none;">
-                    <div class="modal-header color-navbar br-modal-top">
+                    <div class="modal-header color-thead-good br-modal-top">
                         <h1 class="modal-title fs-5" id="staticBackdropLabel">¿Estas seguro de cancelar el pedido?</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
@@ -162,7 +162,7 @@
                         <p>Hora de entrega: {{ Carbon\Carbon::parse($order-> horaEntrega)->isoFormat('h:m A') }}</p>
                         <div class="d-flex justify-content-between mt-4 mb-2">
 
-                            <button type="button" class="btn-blue-boton btn-color-rojo" data-bs-dismiss="modal">Cancelar acción!</button>
+                            <button type="button" class="btn-blue-boton btn-color-rojo" data-bs-dismiss="modal">Cancelar</button>
                             
                             <form method="post" action="{{ route('Order.cancel', $order->id) }}" role="form" enctype="multipart/form-data" class="needs-validation">
                                 @csrf
@@ -170,7 +170,7 @@
 
                                 <input class="d-none" type="number" name="id_sale" value="{{$user}}">
                                 <input class="d-none" type="text" name="status" value="cancelado">
-                                <button type="submit" class="btn-blue-boton btn-color-azul">Si, cancelar!</button>
+                                <button type="submit" class="btn-blue-boton btn-color-verde">Aceptar</button>
 
                             </form>
                             

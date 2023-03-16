@@ -19,15 +19,15 @@
             <div class="col-sm-12 col-lg-10 table-responsive-sm">
                 <h5>Pasteles registrados</h5>
                 <table class="table table-borderless">
-                    <thead class="color-thead-p">
+                    <thead class="color-thead-good">
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col" class="bordes-t-l">#</th>
                             <th scope="col">Sabor</th>
                             <th scope="col">Tamaño</th>
                             <th scope="col">Fecha</th>
                             <th scope="col">Etiqueta</th>
                             <th scope="col">Precio</th>
-                            <th scope="col"></th>
+                            <th scope="col" class="bordes-t-r"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -58,8 +58,8 @@
                         <div class="modal fade" id="borrar-{{$cake ->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content" style="background: transparent;border: none;">
-                                    <div class="modal-header color-navbar br-modal-top">
-                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">¿Estas seguro de eliminar el pastel?</h1>
+                                    <div class="modal-header color-pregun br-modal-top">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">¿Estás seguro de eliminar este pastel?</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body color-modal br-modal-bot">
@@ -73,12 +73,12 @@
                                         </div>
 
                                         <div class="d-flex justify-content-between mt-4 mb-2">
-                                            <button type="button" class="btn-blue-boton btn-color-rojo" data-bs-dismiss="modal">Cancelar acción!</button>
+                                            <button type="button" class="btn-blue-boton btn-color-rojo" data-bs-dismiss="modal">Cancelar</button>
                                             <form action="{{ route('Product.destroy',$cake ->id)}}" class="d-none" method="post">
                                                 @csrf
                                                 {{ method_field('DELETE') }}
 
-                                                <button type="submit" class="btn-blue-boton btn-color-azul" style="border: 0;">Si, eliminalo!</button>
+                                                <button type="submit" class="btn-blue-boton btn-color-verde" style="border: 0;">Aceptar</button>
                                             </form>
                                         </div>
 
@@ -88,14 +88,14 @@
                             </div>
                         </div>
                         @php
-                        $cont++;
-                        $total+= ($cake -> precio);
+                            $cont++;
+                            $total+= ($cake -> precio);
                         @endphp
                         
                         @endforeach
                         <tr class="color-footer-b">
-                            <th scope="row" colspan="5">Total</th>
-                            <td colspan="2" class="fw-bold">{{$total}}</td>
+                            <th scope="row" colspan="5" class="bordes-b-r">Total</th>
+                            <td colspan="2" class="fw-bold bordes-b-l">{{$total}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -111,12 +111,12 @@
 
                 <h5>Velitas registradas</h5>
                 <table class="table table-borderless">
-                    <thead class="color-thead-p">
+                    <thead class="color-thead-good">
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col" class="bordes-t-l">#</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Precio</th>
-                            <th scope="col"></th>
+                            <th scope="col" class="bordes-t-r"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -145,8 +145,8 @@
                         <div class="modal fade" id="borrarV-{{$candle ->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content" style="background: transparent;border: none;">
-                                    <div class="modal-header color-navbar br-modal-top">
-                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">¿Estas seguro de eliminar la velita?</h1>
+                                    <div class="modal-header color-pregun br-modal-top">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">¿Estás seguro de eliminar esta velita?</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body color-modal br-modal-bot">
@@ -156,11 +156,11 @@
                                         </div>
 
                                         <div class="d-flex justify-content-between mt-4 mb-2">
-                                            <button type="button" class="btn-blue-boton btn-color-rojo" data-bs-dismiss="modal">Cancelar acción!</button>
+                                            <button type="button" class="btn-blue-boton btn-color-rojo" data-bs-dismiss="modal">Cancelar</button>
                                             <form action="{{ route('Product.destroyC',$candle ->id)}}" class="d-none" method="post">
                                                 @csrf
                                                 {{ method_field('DELETE') }}
-                                                <button type="submit" class="btn-blue-boton btn-color-azul" style="border: 0;">Si, eliminalo!</button>
+                                                <button type="submit" class="btn-blue-boton btn-color-verde" style="border: 0;">Aceptar</button>
                                             </form>
                                         </div>
 
@@ -176,8 +176,8 @@
                         @endphp
                         @endforeach
                         <tr class="color-footer-b">
-                            <th scope="row" colspan="2">Total</th>
-                            <td colspan="2" class="fw-bold">{{$totalC}}</td>
+                            <th scope="row" colspan="2" class="bordes-b-r">Total</th>
+                            <td colspan="2" class="fw-bold bordes-b-l">{{$totalC}}</td>
                         </tr>
                     </tbody>
                 </table>

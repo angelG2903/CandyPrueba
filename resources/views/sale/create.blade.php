@@ -12,15 +12,15 @@
         <div class="col-sm-12 col-lg-10 table-responsive-sm">
             <h5>Pasteles en stock</h5>
             <table class="table table-borderless">
-                <thead class="color-thead-p">
+                <thead class="color-thead-good">
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col" class="bordes-t-l">#</th>
                         <th scope="col">Sabor</th>
                         <th scope="col">Tamaño</th>
                         <th scope="col">Fecha</th>
                         <th scope="col">Etiqueta</th>
                         <th scope="col">Precio</th>
-                        <th scope="col"></th>
+                        <th scope="col" class="bordes-t-r"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,7 +40,7 @@
                         <td>{{ $cake -> precio }}</td>
                         <td>
                             <div class="d-flex justify-content-center">
-                                <button type="button" class="btn-blue-boton btn-color-azul px-3 me-1" data-bs-toggle="modal" data-bs-target="#borrar-{{$cake ->id}}">Agregar</button>
+                                <button type="button" class="btn-blue-boton btn-color-azul-b px-3 me-1" data-bs-toggle="modal" data-bs-target="#borrar-{{$cake ->id}}">Agregar</button>
                             </div>
                         </td>
                     </tr>
@@ -87,8 +87,8 @@
                     @endphp
                     @endforeach
                     <tr class="color-footer-b">
-                        <th scope="row" colspan="5">Total</th>
-                        <td colspan="2" class="fw-bold">{{$total}}</td>
+                        <th scope="row" colspan="5" class="bordes-b-r">Total</th>
+                        <td colspan="2" class="fw-bold bordes-b-l">{{$total}}</td>
                     </tr>
                 </tbody>
             </table>

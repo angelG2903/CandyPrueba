@@ -21,15 +21,15 @@
                 <div class="col-sm-12 col-lg-10 table-responsive-sm">
                     <h5>Pasteles vendidos</h5>
                     <table class="table table-borderless">
-                        <thead class="color-thead-p">
+                        <thead class="color-thead-good">
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col" class="bordes-t-l">#</th>
                                 <th scope="col">Sabor</th>
                                 <th scope="col">Tamaño</th>
                                 <th scope="col">Fecha</th>
                                 <th scope="col">Etiqueta</th>
                                 <th scope="col">Precio</th>
-                                <th scope="col"></th>
+                                <th scope="col" class="bordes-t-r"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,8 +58,8 @@
                             <div class="modal fade" id="borrar-{{$cake ->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content" style="background: transparent;border: none;">
-                                        <div class="modal-header color-navbar br-modal-top">
-                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">¿Estas seguro de cancelar el pastel?</h1>
+                                        <div class="modal-header color-pregun br-modal-top">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">¿Estás seguro de cancelar el pastel?</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body color-modal br-modal-bot">
@@ -73,14 +73,14 @@
                                             </div>
 
                                             <div class="d-flex justify-content-between mt-4 mb-2">
-                                                <button type="button" class="btn-blue-boton btn-color-rojo" data-bs-dismiss="modal">Cancelar acción!</button>
+                                                <button type="button" class="btn-blue-boton btn-color-rojo" data-bs-dismiss="modal">Cancelar</button>
                                                 <form method="POST" action="{{ route('Sale.updateQ', $cake->id) }}" role="form" enctype="multipart/form-data" class="d-none needs-validation">
                                                     @csrf
                                                     {{ method_field('PATCH') }}
 
                                                     <input class="d-none" type="number" name="id_sale" value="0">
                                                     <input class="d-none" type="text" name="status" value="disponible">
-                                                    <button type="submit" class="btn-blue-boton btn-color-azul px-3 me-1">Si, cancelar!</button>
+                                                    <button type="submit" class="btn-blue-boton btn-color-verde">Aceptar</button>
                                                 </form>
                                             </div>
 
@@ -95,8 +95,8 @@
                             @endphp
                             @endforeach
                             <tr class="color-footer-b">
-                                <th scope="row" colspan="5">Total</th>
-                                <td colspan="2" class="fw-bold">{{$total}}</td>
+                                <th scope="row" colspan="5" class="bordes-b-r">Total</th>
+                                <td colspan="2" class="fw-bold bordes-b-l">{{$total}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -112,12 +112,12 @@
 
                     <h5>Velitas vendidas</h5>
                     <table class="table table-borderless">
-                        <thead class="color-thead-p">
+                        <thead class="color-thead-good">
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col" class="bordes-t-l">#</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Precio</th>
-                                <th scope="col"></th>
+                                <th scope="col" class="bordes-t-r"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -142,8 +142,8 @@
                             <div class="modal fade" id="borrarV-{{$candle ->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content" style="background: transparent;border: none;">
-                                        <div class="modal-header color-navbar br-modal-top">
-                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">¿Estas seguro de cancelar la velita?</h1>
+                                        <div class="modal-header color-pregun br-modal-top">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">¿Estás seguro de cancelar la velita?</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body color-modal br-modal-bot">
@@ -154,14 +154,14 @@
 
                                             <div class="d-flex justify-content-between mt-4 mb-2">
 
-                                                <button type="button" class="btn-blue-boton btn-color-rojo" data-bs-dismiss="modal">Cancelar acción!</button>
+                                                <button type="button" class="btn-blue-boton btn-color-rojo" data-bs-dismiss="modal">Cancelar</button>
                                                 <form method="POST" action="{{ route('Sale.updateCQ', $candle->id) }}" role="form" enctype="multipart/form-data" class="d-none needs-validation">
                                                     @csrf
                                                     {{ method_field('PATCH') }}
                                             
                                                     <input class="d-none" type="number" name="id_sale" value="0">
                                                     <input class="d-none" type="text" name="status" value="disponible">
-                                                    <button type="submit" class="btn-blue-boton btn-color-azul px-3 me-1">Si, cancelar!</button>
+                                                    <button type="submit" class="btn-blue-boton btn-color-verde">Aceptar</button>
 
                                                 </form>
 
@@ -179,8 +179,8 @@
                             @endphp
                             @endforeach
                             <tr class="color-footer-b">
-                                <th scope="row" colspan="2">Total</th>
-                                <td colspan="2" class="fw-bold">{{$totalC}}</td>
+                                <th scope="row" colspan="2" class="bordes-b-r">Total</th>
+                                <td colspan="2" class="fw-bold bordes-b-l">{{$totalC}}</td>
                             </tr>
                         </tbody>
                     </table>

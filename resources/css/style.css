@@ -127,6 +127,12 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-image: linear-gradient(to right, #ffb88c, #e08282);
   }
+
+  .color-pregun {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+    background-image: linear-gradient(to right, #7cdaf9, #7cdaf9, #3eaaf8);
+  }
   
   
   
@@ -218,12 +224,19 @@
   
   
   /* color de las tarjetas */
+  .card-sombra {
+    border: none !important;
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.3);
+  }
+
+
   .tarjeta-color-header {
-    background-color: #8D8D8D !important;
+    /* background-color: #8D8D8D !important; */
+    background-image: linear-gradient(to right, #7cdaf9, #7cdaf9, #3eaaf8) !important;
   }
   
   .tarjeta-color-body {
-    background-color: #BDBDBD !important;
+    /* background-color: #BDBDBD !important; */
     padding: 10px 16px;
     font-weight: bold;
   
@@ -333,8 +346,24 @@
   }
   
   /* Estilos para tablas de registro producto */
-  .color-thead-p {
-    background-color: #BDBDBD;
+  .bordes-t-r {
+    border-radius: 0px 10px 0px 0px;
+  }
+
+  .bordes-t-l {
+    border-radius: 10px 0px 0px 0px;
+  }
+
+  .bordes-b-r {
+    border-radius: 0px 0px 0px 10px;
+  }
+
+  .bordes-b-l {
+    border-radius: 0px 0px 10px 0px;
+  }
+
+  .color-thead-good {
+    background-image: linear-gradient(to right, #7cdaf9, #7cdaf9, #3eaaf8);
   }
   
   .color-border-b {
@@ -342,7 +371,8 @@
   }
   
   .color-footer-b {
-    background-color: #bdbdbd60;
+    border-color: white;
+    background-image: linear-gradient(to right, #7cdaf9, #7cdaf9, #3eaaf8);
   }
   
   /* Estilos de botones editar y borrar registros */
@@ -355,7 +385,7 @@
     justify-content: center;
     color: white;
     text-decoration: none;
-    background-color: #1159EC;
+    background-color: #2067f7;
     border-radius: 5px;
     font-size: 21px;
     cursor: pointer;
@@ -363,7 +393,7 @@
   
   .f-icon-edit:hover {
     color: white;
-    background-color: #3877f5;
+    background-color: #3b7af8;
   }
   
   .f-icon-delete {
@@ -374,7 +404,7 @@
     height: 30px;
     text-decoration: none;
     color: white;
-    background-color: #EB1F1F;
+    background-color: #f33232;
     border-radius: 5px;
     font-size: 21px;
     cursor: pointer;
@@ -382,13 +412,15 @@
   
   .f-icon-delete:hover {
     color: white;
-    background-color: #ec3e3e;
+    background-color: #f84f4f;
   }
   /* Estilos del total de venta */
   .total-venta {
-    background: #8D8D8D;
+    /* background: #29BD1C; */
+    background-image: linear-gradient(to right, #7cdaf9, #7cdaf9, #3eaaf8);
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.3);
     border-radius: 30px;
-    color: white;
+    color: black;
   }
   
   footer .foo {

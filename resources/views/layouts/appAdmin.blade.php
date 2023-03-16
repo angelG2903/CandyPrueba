@@ -40,9 +40,27 @@
                 </div>
                 <div class="list-group list-group-flush mt-3">
 
-                    <a href="{{ route('Inventory') }}" class="list-group-item  fw-bold"><i class="fa-solid fa-cake-candles me-2"></i>Inventario</a>
-                    <a href="{{ route('RegisterEmployee') }}" class="list-group-item  fw-bold mt-2"><i class="bi bi-plus-circle-fill me-2"></i>Registrar usuarios</a>
-                    <a href="{{ route('Order') }}" class="list-group-item  fw-bold mt-2"><i class="bi bi-plus-circle-fill me-2"></i>Pedidos</a>
+                    @if (Route::currentRouteName() == 'Dashboard')
+                        <a href="{{ route('Inventory') }}" class="list-group-item  fw-bold"><i class="fa-solid fa-cake-candles me-2"></i>Inventario</a>
+                        <a href="{{ route('RegisterEmployee') }}" class="list-group-item  fw-bold mt-2"><i class="bi bi-plus-circle-fill me-2"></i>Registrar usuarios</a>
+                        <a href="{{ route('Order') }}" class="list-group-item  fw-bold mt-2"><i class="bi bi-plus-circle-fill me-2"></i>Pedidos</a>
+                    @endif
+
+                    @if (Route::currentRouteName() == 'Order')
+                        <a href="{{ route('Dashboard') }}" class="list-group-item  fw-bold mt-2"><i class="bi bi-box-arrow-in-right me-2"></i>Regresar</a>
+                    @endif
+
+                    @if (Route::currentRouteName() == 'Inventory')
+                        <a href="{{ route('Dashboard') }}" class="list-group-item  fw-bold mt-2"><i class="bi bi-box-arrow-in-right me-2"></i>Regresar</a>
+                    @endif
+
+                    @if (Route::currentRouteName() == 'RegisterEmployee')
+                        <a href="{{ route('Dashboard') }}" class="list-group-item  fw-bold mt-2"><i class="bi bi-box-arrow-in-right me-2"></i>Regresar</a>
+                    @endif
+
+                    @if (Route::currentRouteName() == 'register')
+                        <a href="{{ route('RegisterEmployee') }}" class="list-group-item  fw-bold mt-2"><i class="bi bi-box-arrow-in-right me-2"></i>Regresar</a>
+                    @endif
 
                 </div>
             </div>

@@ -42,21 +42,26 @@
     
 
     @if(!empty($orders))
-        @if($buscar == 'disponible')
-            <h1>Pedidos pendientes</h1>
-        @endif
-        @if($buscar == 'realizado')
-            <h1>Pedidos realizados</h1>
-        @endif
-        @if($buscar == 'cancelado')
-            <h1>Pedidos cancelados</h1>
-        @endif
+        <div class="row mt-3">
+            <div class="col-12 text-center">
+
+                @if($buscar == 'disponible')
+                <h3>Pedidos pendientes</h3">
+                @endif
+                @if($buscar == 'realizado')
+                <h3>Pedidos realizados</h3>
+                @endif
+                @if($buscar == 'cancelado')
+                <h3>Pedidos cancelados</h3>
+                @endif
+            </div>
+        </div>
         <!-- pedidos -->
         @foreach($orders as $order)
             <div class="row mt-5 d-flex justify-content-center">
 
                 <div class="col-sm-12 col-lg-6">
-                    <div class="card text-white" style="max-width: 40rem;">
+                    <div class="card text-white card-sombra" style="max-width: 40rem;">
                         <div class="card-header tarjeta-color-header">
                             <div class="row">
                                 <div class="col-lg-8">Nombre del cliente: {{ $order->nombre }}</div>
@@ -94,8 +99,11 @@
             </div>
         @endforeach
     @else
-
-        <h2>No hay pedidos</h2>
+        <div class="row mt-3">
+            <div class="col-12 text-center">
+                <h3>No hay pedidos</h3>
+            </div>
+        </div>
 
     @endif
 

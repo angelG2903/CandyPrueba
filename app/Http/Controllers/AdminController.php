@@ -39,7 +39,11 @@ class AdminController extends Controller
 
     public function inventory()
     {
-        return view('admin.inventory');
+
+        $cakes = DB::select('select * from cakes where status = ?',['disponible']);
+        $candles = DB::select('select * from candles where status = ?',['disponible']);
+        
+        return view('admin.inventory', compact('cakes', 'candles'));
     }
 
     public function showOrder(Request $request)
@@ -54,7 +58,10 @@ class AdminController extends Controller
 
     public function employee()
     {
-        return view('admin.employee');
+
+        $users['users'] = DB::select('select * from users where rol = ?',['user']);
+
+        return view('admin.employee',$users);
     }
 
 

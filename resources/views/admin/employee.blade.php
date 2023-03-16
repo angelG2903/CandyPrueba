@@ -13,25 +13,30 @@
 
     </div>
 
+@if(!empty($users))
     <!-- Tabla de los pasteles d-flex justify-content-center-->
     <div class="row mt-2 d-flex justify-content-center">
         <div class="col-sm-12 col-lg-10 table-responsive-sm">
             <h5>Usuarios registrados</h5>
             <table class="table table-borderless">
-                <thead class="color-thead-p">
+                <thead class="color-thead-good">
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col" class="bordes-t-l">#</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Apellidos</th>
                         <th scope="col">Teléfono</th>
                         <th scope="col">Correo</th>
-                        <th scope="col"></th>
+                        <th scope="col" class="bordes-t-r"></th>
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                        $cont = 1;
+                    @endphp
+                    @foreach($users as $user)
                     <tr class="color-border-b">
-                        <th scope="row">1</th>
-                        <td>Angel</td>
+                        <th scope="row">{{ $cont }}</th>
+                        <td>{{ $user -> name }}</td>
                         <td>Muñoz Chávez</td>
                         <td>2241164050</td>
                         <td>angel@gmail.com</td>
@@ -44,28 +49,22 @@
                         </td>
                         
                     </tr>
-                    <tr class="color-border-b">
-                        <th scope="row">2</th>
-                        <td>Pedro</td>
-                        <td>Castro Adan</td>
-                        <td>2251168952</td>
-                        <td>pedro@gmail.com</td>
-                        <td>
-                            <div class="d-flex justify-content-center">
-                                <a class="f-icon-edit mx-2"><i class="bi bi-pencil"></i></a>
-                                <a class="f-icon-delete"><i class="bi bi-trash"></i></a>
-
-                            </div>
-                        </td>
-                        
-
-                    </tr>
-                    
+                    @php
+                        $cont++;
+                    @endphp
+                    @endforeach
                 </tbody>
             </table>
 
         </div>
     </div>
+@else
+    <div class="row mt-3">
+        <div class="col-12 text-center">
+            <h3>No hay usuarios registrados</h3>
+        </div>
+    </div>
+@endif
 
 </div>
 
