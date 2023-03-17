@@ -37,9 +37,9 @@
                     <tr class="color-border-b">
                         <th scope="row">{{ $cont }}</th>
                         <td>{{ $user -> name }}</td>
-                        <td>Muñoz Chávez</td>
-                        <td>2241164050</td>
-                        <td>angel@gmail.com</td>
+                        <td>{{ $user -> last_name }}</td>
+                        <td>{{ $user -> phone_number }}</td>
+                        <td>{{ $user -> email }}</td>
                         <td>
                             <div class="d-flex justify-content-center">
                                 <a class="f-icon-edit mx-2"><i class="bi bi-pencil"></i></a>

@@ -21,12 +21,13 @@ class RegisterSaleController extends Controller
     public function index()
     {
         
+        $date = Carbon::now();
         // $dataCake['cakes']=Cake::paginate();
-        $dataCake['cakes'] = DB::select('select * from cakes where status = ?',['vendido']);
-        $dataCandle['candles'] = DB::select('select * from candles where status = ?',['vendido']);
+        $dataCake['cakes'] = DB::select('select * from cakes where status = ? and  DATE(updated_at) = ?',['vendido', $date->format('Y-m-d')]);
+        $dataCandle['candles'] = DB::select('select * from candles where status = ? and  DATE(updated_at) = ?',['vendido', $date->format('Y-m-d')]);
         // $dataCandle['candles']=Candle::paginate();
 
-        $date = Carbon::now();
+        
         return view('sale.index',$dataCake, $dataCandle)->with(compact('date'));
         // return response()->json($dataCake);
     }

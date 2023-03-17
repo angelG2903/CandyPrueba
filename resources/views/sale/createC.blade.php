@@ -43,27 +43,28 @@
                     <div class="modal fade" id="borrar-{{$candle ->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content" style="background: transparent;border: none;">
-                                <div class="modal-header color-navbar br-modal-top">
+                                <div class="modal-header color-pregun br-modal-top">
                                     <h1 class="modal-title fs-5" id="staticBackdropLabel">¿Estas seguro de agregar la velita?</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body color-modal br-modal-bot">
                                     <div class="row mb-3">
-                                        <div class="col-8">Sabor: {{$candle -> nombre}}</div>
+                                        <div class="col-8">Nombre: {{$candle -> nombre}}</div>
                                         <div class="col-4 d-lg-flex justify-content-end">Precio: {{$candle -> precio}}</div>
                                     </div>
 
                                     <div class="d-flex justify-content-between mt-4 mb-2">
+
+                                        <button type="button" class="btn-blue-boton btn-color-rojo" data-bs-dismiss="modal">Cancelar</button>
                                         <form method="POST" action="{{ route('Sale.updateC', $candle->id) }}" role="form" enctype="multipart/form-data" class="d-none needs-validation">
                                             @csrf
                                             {{ method_field('PATCH') }}
                                             <input class="d-none" type="number" name="id_sale" value="{{$user}}">
                                             <input class="d-none" type="text" name="status" value="vendido">
-                                            <button type="submit" class="btn-blue-boton btn-color-azul px-3 me-1">Agregar</button>
+                                            <button type="submit" class="btn-blue-boton btn-color-verde px-3 me-1">Aceptar</button>
 
                                         </form>
-
-                                        <button type="button" class="btn-blue-boton btn-color-rojo" data-bs-dismiss="modal">Cancelar acción!</button>
+                                        
                                     </div>
 
                                 </div>

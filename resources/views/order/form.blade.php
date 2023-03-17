@@ -132,7 +132,7 @@
 </div>
 
 <!-- Fecha id: hora -->
-<div class="mb-3">
+<div class="mb-5">
     <label for="hora" class="form-label">Hora</label>
     <input type="time" class="form-control borde @error('horaEntrega') is-invalid @enderror" value="{{ isset($dataOrder-> horaEntrega)?$dataOrder-> horaEntrega:old('horaEntrega') }}" name="horaEntrega" id="hora">
     @error('horaEntrega')
@@ -144,11 +144,11 @@
 </div>
 
 
-<div class="mb-3 form-check">
+<!-- <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
 
-</div>
+</div> -->
 <div class="d-flex justify-content-end">
     <a href="{{ route($ruta) }}" class="btn-blue-boton btn-color-rojo me-3">Cancelar</a>
     <button type="submit" class="btn-blue-boton btn-color-azul">{{$boton}}</button>

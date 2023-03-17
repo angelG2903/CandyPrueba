@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Candy Postres') }}</title>
+    <title>Candy Postres</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -41,7 +41,7 @@
                         <a href="{{ route('Product.createC') }}" class="list-group-item  fw-bold mt-2"><i class="bi bi-plus-circle-fill me-2"></i>Registrar Velitas</a>        
                     @endif
                     @if(Route::currentRouteName() == 'Product.create' || Route::currentRouteName() == 'Product.createC' || Route::currentRouteName() == 'Product.edit' || Route::currentRouteName() == 'Product.editC')
-                        <a href="{{ route('Product') }}" class="list-group-item  fw-bold"><i class="fa-solid fa-cake-candles me-2"></i>Producto registrado</a>
+                        <a href="{{ route('Product') }}" class="list-group-item  fw-bold"><i class="bi bi-box-arrow-in-right me-2"></i>Regresar</a>
                     @endif
                     <!-- Rutas para registar venta -->
                     @if (Route::currentRouteName() == 'Sale')
@@ -49,7 +49,7 @@
                         <a href="{{ route('Sale.createC') }}" class="list-group-item  fw-bold mt-2"><i class="bi bi-plus-circle-fill me-2"></i>Registrar Velitas</a>        
                     @endif
                     @if(Route::currentRouteName() == 'Sale.create' || Route::currentRouteName() == 'Sale.createC')
-                        <a href="{{ route('Sale') }}" class="list-group-item  fw-bold"><i class="fa-solid fa-cake-candles me-2"></i>Producto vendido</a>
+                        <a href="{{ route('Sale') }}" class="list-group-item  fw-bold"><i class="bi bi-box-arrow-in-right me-2"></i>Regresar</a>
                     @endif
                 </div>
             </div>

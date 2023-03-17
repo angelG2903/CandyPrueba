@@ -22,12 +22,12 @@
                     </div> -->
 
                     <div class="d-none d-md-block col-md-auto col-lg-auto">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Buscar</button>
                     </div>
                 </div>
                 <div class="row mt-2 ">
                     <div class="col-12 d-md-none d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Buscar</button>
                     </div>
                 </div>
 
