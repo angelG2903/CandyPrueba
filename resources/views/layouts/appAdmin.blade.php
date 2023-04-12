@@ -18,11 +18,10 @@
     
 
     <!-- Mis estilos -->
-    <link rel="stylesheet" href="{{ Vite::asset('resources/css/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/css/style.css', 'resources/js/app.js'])
 
 
 </head>
@@ -36,13 +35,30 @@
             <div class="bg-white" id="sidebar-wrapper">
 
                 <div class="sidebar-heading border-bottom">
-                    <p class="fs-3 my-2 ti">Opciones</p>
+                    @if (Route::currentRouteName() == 'Dashboard')
+                        <p class="fs-4 my-2 ti">Corte de venta</p>
+                    @endif
+                    @if (Route::currentRouteName() == 'Order')
+                        <p class="fs-4 my-2 ti">Pedidos</p>
+                    @endif
+                    @if (Route::currentRouteName() == 'Inventory')
+                        <p class="fs-4 my-2 ti">Inventario</p>
+                    @endif
+                    @if (Route::currentRouteName() == 'RegisterEmployee')
+                        <p class="fs-4 my-2 ti">Empleados</p>
+                    @endif
+                    @if (Route::currentRouteName() == 'register')
+                        <p class="fs-4 my-2 ti">Registrar</p>
+                    @endif
+                    @if (Route::currentRouteName() == 'RegisterEmployee.edit')
+                        <p class="fs-4 my-2 ti">Editar empleado</p>
+                    @endif
                 </div>
                 <div class="list-group list-group-flush mt-3">
 
                     @if (Route::currentRouteName() == 'Dashboard')
                         <a href="{{ route('Inventory') }}" class="list-group-item  fw-bold"><i class="fa-solid fa-cake-candles me-2"></i>Inventario</a>
-                        <a href="{{ route('RegisterEmployee') }}" class="list-group-item  fw-bold mt-2"><i class="bi bi-plus-circle-fill me-2"></i>Registrar usuarios</a>
+                        <a href="{{ route('RegisterEmployee') }}" class="list-group-item  fw-bold mt-2"><i class="bi bi-plus-circle-fill me-2"></i>Registrar empleados</a>
                         <a href="{{ route('Order') }}" class="list-group-item  fw-bold mt-2"><i class="bi bi-plus-circle-fill me-2"></i>Pedidos</a>
                     @endif
 
@@ -62,6 +78,14 @@
                         <a href="{{ route('RegisterEmployee') }}" class="list-group-item  fw-bold mt-2"><i class="bi bi-box-arrow-in-right me-2"></i>Regresar</a>
                     @endif
 
+                    @if (Route::currentRouteName() == 'Profile')
+                        <a href="{{ route('Dashboard') }}" class="list-group-item  fw-bold mt-2"><i class="bi bi-box-arrow-in-right me-2"></i>Regresar</a>
+                    @endif
+
+                    @if(Route::currentRouteName() == 'RegisterEmployee.edit')
+                        <a href="{{ route('RegisterEmployee') }}" class="list-group-item  fw-bold"><i class="bi bi-box-arrow-in-right me-2"></i>Regresar</a>
+                    @endif
+
                 </div>
             </div>
             <!-- /#sidebar-wrapper -->
@@ -72,7 +96,7 @@
                     <div class="container-fluid">
                         <div class="d-flex align-items-center">
                             <i class="fas fa-align-left color-icon fs-4 me-3 ms-3" id="menu-toggle"></i>
-                            <p class="fs-3 m-0 ti" id="desap">Candy Postres</p>
+                            <p class="fs-4 m-0 ti" id="desap">Candy Postres</p>
                         </div>
 
 
@@ -83,7 +107,7 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="{{ route('Dashboard') }}"><i class="bi bi-house"></i>Inicio</a></li>
-                                <li><a class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#editarUsuario">Editar perfil</a></li>
+                                <li><a class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#editarUsuario"><i class="bi bi-person-fill-gear"></i>Perfil</a></li>
                                 <li>
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
@@ -123,38 +147,34 @@
         <div class="modal-dialog">
             <div class="modal-content" style="background: transparent;border: none;">
                 <div class="modal-header color-navbar br-modal-top">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar perfil</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Perfil</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body color-modal br-modal-bot">
 
-                    <form>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Nombre</label>
-                            <input type="text" class="form-control borde" id="exampleInputPassword1">
+                    <div class="row mb-2 d-flex justify-content-center align-items-center">   
+                        <div class="col-12">
+                            <img src="../resources/img/Candy.png" alt="" class="img-fluid">
                         </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Apellidos</label>
-                            <input type="text" class="form-control borde" id="exampleInputPassword1">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Teléfono</label>
-                            <input type="number" class="form-control borde" id="exampleInputPassword1">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Correo</label>
-                            <input type="email" class="form-control borde" id="exampleInputPassword1">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control borde" id="exampleInputPassword1">
-                        </div>
-                        <div class="d-flex justify-content-end mt-5 mb-2">
-                            <button type="button" class="btn-blue-boton btn-color-rojo me-3" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn-blue-boton btn-color-azul px-3 me-1" data-bs-dismiss="modal">Guardar cambios</button>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p><b>Nombre:</b> {{Auth::user()->name}}</p>
+                            <p><b>Apellido:</b> {{Auth::user()->last_name}}</p>
+                            <p><b>Teléfono:</b> {{Auth::user()->phone_number}}</p>
+                            <p><b>Correo:</b> {{Auth::user()->email}}</p>
+
+                            <div class="row">
+                                <div class="col-6"></div>
+                                <div class="col-6 d-flex justify-content-end">
+                                    <a class="btn-blue-boton btn-color-azul" href="{{ route('Profile') }}">Editar perfil</a>
+                                </div>
+                            </div>
+                            
 
                         </div>
-                    </form>
+                    </div>
 
                 </div>
 
@@ -171,6 +191,7 @@
             el.classList.toggle("toggled");
         };
     </script>
+    @yield('js')
 
 </body>
 

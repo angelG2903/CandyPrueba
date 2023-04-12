@@ -6,7 +6,7 @@
     <div class="row mt-5 ">
         <!-- Logo -->
         <div class="col-md-12 col-lg-7">
-            <img src="{{ Vite::asset('resources/img/Candy.png') }}" alt="" class="img-fluid">
+            <img src="../resources/img/Candy.png" alt="" class="img-fluid">
         </div>
 
         <!-- Botones -->
@@ -36,7 +36,7 @@
 
 <!-- Notificacion-->
 <div class="modal fade " id="noti" tabindex="-1" aria-labelledby="velasLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content " style="background: transparent;border: none;">
             <div class="modal-header color-navbar br-modal-top">
                 <h5 class="modal-title" id="velasLabel">Notificación</h5>
@@ -90,4 +90,33 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if(Session('mensaje') == 'actualizado')
+<script>
+    Swal.fire(
+        'Perfil actualizado con éxito',
+        '',
+        'success'
+    )
+</script>
+@endif
+
+@if(Session('mensaje') == 'nada')
+<script>
+    Swal.fire(
+        'No hubo ningun cambio en su perfil',
+        '',
+        'success'
+    )
+</script>
+@endif
+
+
+
+
+
 @endsection

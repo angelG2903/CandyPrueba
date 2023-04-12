@@ -7,12 +7,20 @@
 
 <div class="mb-3">
     <label for="nombre" class="form-label">Nombre</label>
-    <select class="form-select borde " aria-label="Default select example" name="nombre" id="nombre" required>
-        <option selected>{{ isset($datacandle-> nombre)?$datacandle-> nombre:'Seleccione el nombre'}}</option>
+    <select class="form-select borde @error('nombre') is-invalid @enderror" name="nombre" id="nombre">
+        <option value="{{ isset($datacandle-> nombre)?$datacandle-> nombre:''}}">{{ isset($datacandle-> nombre)?$datacandle-> nombre:'Seleccione el nombre'}}</option>
         <option value="Vela número" {{ old('nombre') == 'Vela número' ? 'selected' :old('nombre') }}>Vela número</option>
-        <option value="Vela Magi" {{ old('nombre') == 'Vela Magi' ? 'selected' :old('nombre') }}>Vela Magi</option>
+        <option value="Vari-Magi" {{ old('nombre') == 'Vari-Magi' ? 'selected' :old('nombre') }}>Vari-Magi</option>
+        <option value="Vela de Chispas" {{ old('nombre') == 'Vela de Chispas' ? 'selected' :old('nombre') }}>Vela de Chispas</option>
+        <option value="Figura" {{ old('nombre') == 'Figura' ? 'selected' :old('nombre') }}>Figura</option>
         
     </select>
+
+    @error('nombre')
+    <span class="invalid-feedback" role="alert">
+        <strong>{{ $message }}</strong>
+    </span>
+    @enderror
     
 </div>
 <div class="mb-3">

@@ -26,7 +26,14 @@
                     </div>
                 </div>
                 <div class="card-body text-black tarjeta-color-body">
-                    <p class="card-text">Sabor: {{ $order-> sabor }}</p>
+                    <div class="row">
+                        <div class="col-8">
+                            <p class="card-text">Sabor: {{ $order-> sabor }}</p>
+                        </div>
+                        <div class="col-4 d-flex justify-content-end">
+                            <span class="badge rounded-pill btn-color-azul">Pendiente</span>
+                        </div>
+                    </div>
                     <p class="card-text">Relleno: {{ $order-> relleno }}</p>
                     <p class="card-text">Anticipo: {{ $order-> anticipo }}</p>
                     <div class="row ">
@@ -57,6 +64,7 @@
 
                     <div class="modal-body color-modal br-modal-bot">
 
+                        
                         <div class="row mb-3">
                             <div class="col-8">Cliente: {{ $order-> nombre }}</div>
                             <div class="col-4 d-lg-flex justify-content-end">Precio: {{ $order-> precio }}</div>
@@ -77,14 +85,19 @@
                         <p>Rebanadas: {{ $order-> rebanadas }}</p>
                         <p>Decoración: {{ $order-> decoracion }}</p>
                         <p>Fecha de entrega: {{ Carbon\Carbon::parse($order-> fechaEntrega)->format('d-m-Y') }}</p>
-                        <p>Hora de entrega: {{ Carbon\Carbon::parse($order-> horaEntrega)->isoFormat('h:m A') }}</p>
-
+                        <div class="row mb-3">
+                            <div class="col-8">Hora de entrega: {{ Carbon\Carbon::parse($order-> horaEntrega)->isoFormat('h:m A') }}</div>
+                            <div class="col-4 d-lg-flex justify-content-end">
+                                <span class="badge rounded-pill btn-color-azul fs-5">Pendiente</span>
+                            </div>
+                        </div>
+                        
                         <div class="row mt-5 mb-2">
 
                             <div class="d-flex justify-content-between">
 
                                 <button type="button" class="btn-blue-boton btn-color-rojo" data-bs-toggle="modal" data-bs-target="#borrar-{{$order ->id}}">
-                                    Cancelar
+                                    Cancelar pedido
                                 </button>
 
 
@@ -95,6 +108,7 @@
                             </div>
 
                         </div>
+                        
 
 
                     </div>

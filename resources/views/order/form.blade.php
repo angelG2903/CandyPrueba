@@ -1,22 +1,12 @@
-<!-- @if(count($errors)>0)
-
-<div class="alert alert-danger" role="alert">
-    <ul>
-        @foreach($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-
-
-
-
-@endif -->
-
 
 <div class="mb-3 d-none">
     <label for="id_u" class="form-label">Id_user</label>
     <input type="text" class="form-control borde" value="{{ isset($user)?$user:$dataOrder-> id_user }}" name="id_user" id="id_u">
+
+</div>
+<div class="mb-3 d-none">
+    <label for="id_us" class="form-label">Id_sale</label>
+    <input type="text" class="form-control borde" value="{{ isset($user)?$user:$dataOrder-> id_sale }}" name="id_sale" id="id_us">
 
 </div>
 <!-- Nombre del cliente id: nombreC -->
@@ -53,14 +43,19 @@
 
 </div>
 
-<!-- Sabor id: sabor value="{{ isset($dataOrder-> sabor)?$dataOrder-> sabor:old('sabor') }}"-->
 <div class="mb-3">
     <label for="sabor" class="form-label">Sabor</label>
-    <select class="form-select borde" aria-label="Default select example" name="sabor" id="sabor" required>
-        <option selected>{{ isset($dataOrder-> sabor)?$dataOrder-> sabor:'Seleccione un sabor'}}</option>
+    <select class="form-select borde @error('sabor') is-invalid @enderror" name="sabor" id="sabor">
+        <option value="{{ isset($dataOrder-> sabor)?$dataOrder-> sabor:''}}">{{ isset($dataOrder-> sabor)?$dataOrder-> sabor:'Seleccione un sabor'}}</option>
         <option value="3 leches" {{ old('sabor') == '3 leches' ? 'selected' :old('sabor') }}>3 leches</option>
         <option value="Combinado" {{ old('sabor') == 'Combinado' ? 'selected' :old('sabor') }}>Combinado</option>
     </select>
+
+    @error('sabor')
+    <span class="invalid-feedback" role="alert">
+        <strong>{{ $message }}</strong>
+    </span>
+    @enderror
 
 </div>
 
@@ -121,7 +116,7 @@
 </div>
 <!-- Fecha id: fecha -->
 <div class="mb-3">
-    <label for="fecha" class="form-label">Fecha</label>
+    <label for="fecha" class="form-label">Fecha de entrega</label>
     <input type="date" class="form-control borde @error('fechaEntrega') is-invalid @enderror" value="{{ isset($dataOrder-> fechaEntrega)?$dataOrder-> fechaEntrega:old('fechaEntrega') }}" name="fechaEntrega" id="fecha">
     @error('fechaEntrega')
     <span class="invalid-feedback" role="alert">
@@ -133,7 +128,7 @@
 
 <!-- Fecha id: hora -->
 <div class="mb-5">
-    <label for="hora" class="form-label">Hora</label>
+    <label for="hora" class="form-label">Hora de entrega</label>
     <input type="time" class="form-control borde @error('horaEntrega') is-invalid @enderror" value="{{ isset($dataOrder-> horaEntrega)?$dataOrder-> horaEntrega:old('horaEntrega') }}" name="horaEntrega" id="hora">
     @error('horaEntrega')
     <span class="invalid-feedback" role="alert">

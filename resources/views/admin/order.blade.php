@@ -69,6 +69,27 @@
                             </div>
                         </div>
                         <div class="card-body text-black tarjeta-color-body">
+                            <div class="row mb-3">
+                                <div class="col-8">
+                                    @foreach($users as $use)
+                                        @if($order->id_sale == $use->id)
+                                            <p class="card-text">Responsable: {{ $use->name }}</p>
+                                        @endif
+                                    @endforeach
+                                </div>
+                                <div class="col-4 d-flex justify-content-end">
+                                    @if($buscar == 'disponible')
+                                        <span class="badge rounded-pill btn-color-azul">Pendiente</span>
+                                    @endif
+                                    @if($buscar == 'realizado')
+                                        <span class="badge rounded-pill btn-color-verde">Finalizado</span>
+                                    @endif
+                                    @if($buscar == 'cancelado')
+                                        <span class="badge rounded-pill btn-color-rojo">Cancelado</span>
+                                    @endif
+                                    
+                                </div>
+                            </div>
                             <p class="card-text">Número de teléfono: {{ $order->telefono }}</p>
                             <p class="card-text">Sabor: {{ $order->sabor }}</p>
                             <p class="card-text">Relleno: {{ $order->relleno }}</p>

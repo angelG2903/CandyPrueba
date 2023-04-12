@@ -59,6 +59,7 @@ class RegisterProductController extends Controller
 
         $mensaje=[
             'required'=>'El campo :attribute es obligatorio.',
+            'tamanio.required'=>'El campo tamaño es obligatorio',
             // 'max'=>'El nombre es demaciado largo',
             // 'horaEntrega.required'=>'La la hora es requerida',
 

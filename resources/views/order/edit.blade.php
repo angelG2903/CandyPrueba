@@ -19,7 +19,7 @@
                         @csrf
                         {{ method_field('PATCH') }}
 
-                        @include('order.form', ['ruta'=>'OrderI', 'boton'=>'Editar'] )
+                        @include('order.form', ['ruta'=>'OrderI', 'boton'=>'Guardar cambios'] )
 
                     </form>
 

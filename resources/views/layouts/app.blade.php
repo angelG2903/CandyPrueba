@@ -15,11 +15,10 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Mis estilos -->
-    <link rel="stylesheet" href="{{ Vite::asset('resources/css/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/css/style.css', 'resources/js/app.js'])
 </head>
 
 <body>
@@ -27,7 +26,7 @@
         <nav class="navbar navbar-expand-lg navbar-light color-navbar">
             <div class="container-fluid ">
                 <a class="navbar-brand ti ms-1" href="#">Candy Postres</a>
-                <a class="navbar-brand text-white" href="{{ route('candy') }}"><i class="bi bi-house me-2"></i>Inicio</a>
+                <a class="navbar-brand text-white in" href="{{ route('candy') }}"><i class="bi bi-house me-2"></i>Inicio</a>
             </div>
         </nav>
 

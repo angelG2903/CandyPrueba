@@ -8,7 +8,7 @@
     <div class="row mt-4 me-1">
         <div class="d-flex justify-content-end">
             <!-- <a href="" class="btn-blue-boton btn-color-azul" data-bs-toggle="modal" data-bs-target="#registrarUsuarios">Agregar usuario</a> -->
-            <a href="{{ route('register') }}" class="btn-blue-boton btn-color-azul" >Agregar usuario</a>
+            <a href="{{ route('register') }}" class="btn-blue-boton btn-color-azul" >Agregar empleado</a>
         </div>
 
     </div>
@@ -17,7 +17,7 @@
     <!-- Tabla de los pasteles d-flex justify-content-center-->
     <div class="row mt-2 d-flex justify-content-center">
         <div class="col-sm-12 col-lg-10 table-responsive-sm">
-            <h5>Usuarios registrados</h5>
+            <h5>Empleados registrados</h5>
             <table class="table table-borderless">
                 <thead class="color-thead-good">
                     <tr>
@@ -42,13 +42,52 @@
                         <td>{{ $user -> email }}</td>
                         <td>
                             <div class="d-flex justify-content-center">
-                                <a class="f-icon-edit mx-2"><i class="bi bi-pencil"></i></a>
-                                <a class="f-icon-delete"><i class="bi bi-trash"></i></a>
+                                <a href="{{ route('RegisterEmployee.edit',$user->id) }}" class="f-icon-edit mx-2"><i class="bi bi-pencil"></i></a>
+                                <button type="button" class="f-icon-delete" data-bs-toggle="modal" data-bs-target="#borrarV-{{$user ->id}}" style="border: 0;"><i class="bi bi-trash"></i></button>
 
                             </div>
                         </td>
                         
                     </tr>
+
+                    <!-- Borrar cuenta empleado -->
+                    <div class="modal fade" id="borrarV-{{$user ->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content" style="background: transparent;border: none;">
+                                <div class="modal-header color-pregun br-modal-top">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">¿Estás seguro de eliminar esta cuenta?</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body color-modal br-modal-bot">
+                                    <div class="row mb-3">
+                                        <div class="col-6">Nombre: {{ $user->name }}</div>
+                                        <div class="col-6 d-lg-flex justify-content-end">Teléfono: {{ $user->phone_number }}</div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-8">Apellidos: {{ $user->last_name }} </div>
+                                        <div class="col-4"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">Correo: {{ $user->email }}</div>
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between mt-5 mb-2">
+                                        <button type="button" class="btn-blue-boton btn-color-rojo" data-bs-dismiss="modal">Cancelar</button>
+                                        <form action="{{ route('RegisterEmployee.destroy',$user ->id)}}" class="d-none" method="post">
+                                            @csrf
+                                            {{ method_field('DELETE') }}
+                                            <button type="submit" class="btn-blue-boton btn-color-verde" style="border: 0;">Aceptar</button>
+                                        </form>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+            
                     @php
                         $cont++;
                     @endphp
@@ -69,53 +108,40 @@
 </div>
 
 
+@endsection
 
+@section('js')
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<!-- Modal Registrar usuario-->
-<div class="modal fade" id="registrarUsuarios" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content" style="background: transparent;border: none;">
-                <div class="modal-header color-navbar br-modal-top">
-                    <h5 class="modal-title" id="exampleModalLabel">Registrar usuario</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body color-modal br-modal-bot">
+@if(Session('mensaje') == 'EliminarUser')
+<script>
+    Swal.fire(
+        'Empleado eliminado con éxito',
+        '',
+        'success'
+    )
+</script>
+@endif
 
-                    <form>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Nombre</label>
-                            <input type="text" class="form-control borde" id="exampleInputPassword1">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Apellidos</label>
-                            <input type="text" class="form-control borde" id="exampleInputPassword1">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Teléfono</label>
-                            <input type="number" class="form-control borde" id="exampleInputPassword1">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Correo</label>
-                            <input type="email" class="form-control borde" id="exampleInputPassword1">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control borde" id="exampleInputPassword1">
-                        </div>
-                        <div class="d-flex justify-content-end mt-5 mb-2">
-                            <button type="button" class="btn-blue-boton btn-color-rojo me-3"
-                                data-bs-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn-blue-boton btn-color-azul px-3 me-1"
-                                data-bs-dismiss="modal">Registrar</button>
+@if(Session('mensaje') == 'actualizado')
+<script>
+    Swal.fire(
+        'Empleado actualizado con éxito',
+        '',
+        'success'
+    )
+</script>
+@endif
 
-                        </div>
-                    </form>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
+@if(Session('mensaje') == 'nada')
+<script>
+    Swal.fire(
+        'No hubo ningun cambio en el perfil del empleado',
+        '',
+        'success'
+    )
+</script>
+@endif
 
 @endsection

@@ -15,6 +15,7 @@
 
                     <div class="col-sm-12 col-md-6 col-lg-4">
                         <input type="date" name="buscar" class="form-control" value="{{ $buscar }}" id="fecha">
+                        <!-- <input type="date" name="buscar" class="form-control" value="{{ isset($buscar)?$buscar:Carbon\Carbon::parse($date)->format('Y-m-d') }}" id="fecha"> -->
                     </div>
 
                     <!-- <div class="col-sm-12 col-md-6 col-lg-4">
@@ -217,6 +218,35 @@
     @endif
 
 </div>
+
+
+
+@endsection
+
+@section('js')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if(Session('mensaje') == 'actualizado')
+<script>
+    Swal.fire(
+        'Perfil actualizado con éxito',
+        '',
+        'success'
+    )
+</script>
+@endif
+
+@if(Session('mensaje') == 'nada')
+<script>
+    Swal.fire(
+        'No hubo ningun cambio en su perfil',
+        '',
+        'success'
+    )
+</script>
+@endif
+
+
 
 
 

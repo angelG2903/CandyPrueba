@@ -35,7 +35,6 @@ class OrderController extends Controller
      */
     public function create()
     {
-
         $user = Auth::id();
 
         return view('order.create', compact('user'));

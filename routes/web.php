@@ -39,10 +39,11 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ca
 
 // Rutas del empleado
 Route::get('employee',[App\Http\Controllers\EmployeeController::class, 'index'])->name('employee');
+Route::get('ProfileC', [App\Http\Controllers\EmployeeController::class, 'profileC'])->name('ProfileC');
+Route::post('editUC', [App\Http\Controllers\EmployeeController::class, 'editUserE'])->name('editUC');
 
 // Route::get('RegisterOrder',[App\Http\Controllers\EmployeeController::class, 'registerOrder'])->name('employee.RegisterOrder');
 
-Route::get('RecordSale',[App\Http\Controllers\EmployeeController::class, 'recordSale'])->name('employee.RecordSale');
 
 
 // Route::group(['middleware'=>'disable_back'],function(){
@@ -55,7 +56,7 @@ Route::delete('Order/{id}',[\App\Http\Controllers\OrderController::class, 'destr
 Route::patch('OrderI/{id}',[App\Http\Controllers\OrderController::class, 'cancel'])->name('Order.cancel');
 Route::patch('OrderPay/{id}',[App\Http\Controllers\OrderController::class, 'payOrder'])->name('Order.payOrder');
 // });
-
+// registar pasteles
 Route::get('Product',[\App\Http\Controllers\RegisterProductController::class, 'index'])->name('Product');
 Route::get('Product/create',[\App\Http\Controllers\RegisterProductController::class, 'create'])->name('Product.create');
 Route::post('Product/store',[\App\Http\Controllers\RegisterProductController::class, 'store'])->name('Product.store');
@@ -63,6 +64,7 @@ Route::get('Product/{id}/edit',[\App\Http\Controllers\RegisterProductController:
 Route::patch('Product/{id}',[\App\Http\Controllers\RegisterProductController::class, 'update'])->name('Product.update');
 Route::delete('Product/{id}',[\App\Http\Controllers\RegisterProductController::class, 'destroy'])->name('Product.destroy');
 
+// registar velitas
 Route::get('Product/createC',[\App\Http\Controllers\RegisterProductController::class, 'createC'])->name('Product.createC');
 Route::post('Product/storeC',[\App\Http\Controllers\RegisterProductController::class, 'storeC'])->name('Product.storeC');
 Route::get('ProductC/{id}/edit',[\App\Http\Controllers\RegisterProductController::class, 'editC'])->name('Product.editC');
@@ -89,7 +91,12 @@ Route::get('Dashboard',[App\Http\Controllers\AdminController::class, 'index'])->
 Route::get('Inventory',[App\Http\Controllers\AdminController::class, 'inventory'])->name('Inventory');
 Route::get('Order',[App\Http\Controllers\AdminController::class, 'showOrder'])->name('Order');
 Route::get('RegisterEmployee',[App\Http\Controllers\AdminController::class, 'employee'])->name('RegisterEmployee');
+Route::get('Profile', [App\Http\Controllers\AdminController::class, 'profile'])->name('Profile');
 
+Route::post('editU', [App\Http\Controllers\AdminController::class, 'editUser'])->name('editU');
+Route::delete('RegisterEmployee/{id}',[\App\Http\Controllers\AdminController::class, 'destroy'])->name('RegisterEmployee.destroy');
+Route::get('RegisterEmployee/{id}/edit', [App\Http\Controllers\AdminController::class, 'editEmployee'])->name('RegisterEmployee.edit');
+Route::patch('RegisterEmployee/{id}',[\App\Http\Controllers\AdminController::class, 'update'])->name('RegisterEmployee.update');
 
 
 

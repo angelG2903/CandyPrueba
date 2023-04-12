@@ -114,6 +114,12 @@
   
   
   }
+
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+  }
   
   
   .ti {
@@ -121,6 +127,11 @@
     color: #893101 !important;
     font-weight: bold !important;
     /* 7A3803 */
+  }
+
+  .in {
+    font-size: 18px !important;
+
   }
   
   .color-navbar {
@@ -273,7 +284,7 @@
   /* color primario bajito */
   
   .btn-color-azul-b {
-    background-color: #608AE0;
+    background-color: #608AE0 !important;
   }
   
   .btn-color-azul-b:hover {

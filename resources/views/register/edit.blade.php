@@ -26,7 +26,7 @@
 
                         @include('register.form' )
 
-                        @include('register.botones', ['boton'=>'Editar'])
+                        @include('register.botones', ['boton'=>'Guardar cambios'])
 
                     </form>
 
