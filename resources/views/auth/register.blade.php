@@ -69,8 +69,7 @@
                         <div class="row mb-3 d-none">
                             <label for="rol" class="col-md-4 col-form-label text-md-end">Rol</label>
                             <div class="colmd-6">
-                                <!-- <input id="rol" type="text" class="form-control" name="rol" value="user"> -->
-                                <input id="rol" type="text" class="form-control" name="rol" value="admin">
+                                <input id="rol" type="text" class="form-control" name="rol" value="user">
 
                             </div>
                         </div>
