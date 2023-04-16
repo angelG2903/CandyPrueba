@@ -20,7 +20,7 @@
                         @guest
                             @if (Route::currentRouteName() == 'login')
                                 <li class="nav-item">
-                                    <a class="nav-link" href="">Puto</a>
+                                    <a class="nav-link" href=""></a>
                                 </li>
                             @endif
 

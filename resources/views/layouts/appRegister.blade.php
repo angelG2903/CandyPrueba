@@ -50,6 +50,14 @@
                     @if (Route::currentRouteName() == 'Sale.createC')
                         <p class="fs-4 my-2 ti mx-1 text-center">Venta vela</p>
                     @endif
+
+                    @if(Route::currentRouteName() == 'Product.edit')
+                        <p class="fs-4 my-2 ti mx-1 text-center">Editar pastel</p>
+                    @endif
+
+                    @if(Route::currentRouteName() == 'Product.editC')
+                        <p class="fs-4 my-2 ti mx-1 text-center">Editar vela</p>
+                    @endif
                 </div>
                 <div class="list-group list-group-flush mt-3">
                     <!-- Rutas para registrar producto -->
@@ -120,7 +128,7 @@
 
 
     </div>
-    <footer></footer>
+    <footer class="f"></footer>
 
     <div class="modal fade" id="editarUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -133,7 +141,7 @@
 
                     <div class="row mb-2 d-flex justify-content-center align-items-center">   
                         <div class="col-12">
-                            <img src="../resources/img/Candy.png" alt="" class="img-fluid">
+                            <img src="{{ Vite::asset('resources/img/Candy.png') }}" alt="" class="img-fluid">
                         </div>
 
                     </div>

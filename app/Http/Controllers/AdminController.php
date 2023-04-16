@@ -57,7 +57,7 @@ class AdminController extends Controller
         $buscar=$request->get('buscar');
 
         // $orders['orders'] = DB::select('select * from orders where status = ?',[$buscar]);
-        $orders['orders'] = DB::select('select * from orders where status = ? order by updated_at desc',[$buscar]);
+        $orders['orders'] = DB::select('select * from orders where status = ? order by fechaEntrega desc',[$buscar]);
         $users = DB::select('select * from users');
 
         return view('admin.order', $orders)->with(compact('buscar','users'));

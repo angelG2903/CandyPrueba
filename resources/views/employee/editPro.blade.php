@@ -9,7 +9,7 @@
     </div>
 @endif
 
-<div class="container">
+<div class="container mb-5">
     <div class="row justify-content-center mt-3">
         <div class="col-md-7">
             <div class="card">
@@ -111,10 +111,10 @@
                         <div id="noteHelp" class="form-text ms-3"><b>Nota: </b>No es necesario cambiar la contraseña si solo modifica el nombre, apellido o teléfono.</div>
 
                         <div class="row mt-5 mb-2 mx-2">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <a class="btn-blue-boton btn-color-rojo" href="{{ route('Dashboard') }}">Cancelar</a>
                             </div>
-                            <div class="col-6 d-flex justify-content-end">
+                            <div class="col-8 d-flex justify-content-end">
                                 <button type="submit" class="btn-blue-boton btn-color-azul">
                                     Guardar cambios
                                 </button>

@@ -138,12 +138,6 @@
 
 </div>
 
-
-<!-- <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-
-</div> -->
 <div class="d-flex justify-content-end">
     <a href="{{ route($ruta) }}" class="btn-blue-boton btn-color-rojo me-3">Cancelar</a>
     <button type="submit" class="btn-blue-boton btn-color-azul">{{$boton}}</button>

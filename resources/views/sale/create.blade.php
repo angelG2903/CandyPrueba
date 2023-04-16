@@ -3,23 +3,23 @@
 @section('content')
 
 <!-- Contenido de la pagina -->
-<div class="container">
+<div class="container mb-5">
 
 
     @if(!empty($cakes))
     <!-- Tabla de los pasteles d-flex justify-content-center-->
     <div class="row mt-4 d-flex justify-content-center">
-        <div class="col-sm-12 col-lg-10 table-responsive-sm">
+        <div class="col-sm-12 col-lg-7 table-responsive-sm">
             <h5>Pasteles en stock</h5>
             <table class="table table-borderless">
                 <thead class="color-thead-good">
-                    <tr>
-                        <th scope="col" class="bordes-t-l">#</th>
-                        <th scope="col">Sabor</th>
-                        <th scope="col">Tamaño</th>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Etiqueta</th>
-                        <th scope="col">Precio</th>
+                    <tr class="align-middle">
+                        <th scope="col" class="bordes-t-l"><div class="number-tabla">#</div></th>
+                        <th scope="col"><div class="sabor-tabla">Sabor</div></th>
+                        <th scope="col"><div class="tamano-tabla">Tamaño</div></th>
+                        <th scope="col"><div class="ancho-columna-fecha">Fecha</div></th>
+                        <th scope="col"><div class="etiqueta-tabla">Etiqueta</div></th>
+                        <th scope="col"><div class="precio-tabla">Precio</div></th>
                         <th scope="col" class="bordes-t-r"></th>
                     </tr>
                 </thead>
@@ -31,13 +31,13 @@
 
                     @endphp
                     @foreach( $cakes as $cake )
-                    <tr class="color-border-b">
-                        <th scope="row">{{$cont}}</th>
-                        <td>{{ $cake ->sabor }}</td>
-                        <td>{{ $cake -> tamanio }}</td>
-                        <td>{{ Carbon\Carbon::parse($cake-> created_at)->format('d-m-Y') }}</td>
-                        <td>{{ $cake -> etiqueta }}</td>
-                        <td>{{ $cake -> precio }}</td>
+                    <tr class="color-border-b align-middle">
+                        <th scope="row"><div class="number-tabla">{{ $cont }}</div></th>
+                        <td><div class="sabor-tabla">{{ $cake -> sabor }}</div></td>
+                        <td><div class="tamano-tabla">{{ $cake -> tamanio }}</div></td>
+                        <td><div class="ancho-columna-fecha">{{ Carbon\Carbon::parse($cake-> created_at)->format('d-m-Y') }}</div></td>
+                        <td><div class="etiqueta-tabla">{{ $cake -> etiqueta }}</div></td>
+                        <td><div class="precio-tabla">{{ $cake -> precio }}</div></td>
                         <td>
                             <div class="d-flex justify-content-center">
                                 <button type="button" class="btn-blue-boton btn-color-azul-b px-3 me-1" data-bs-toggle="modal" data-bs-target="#borrar-{{$cake ->id}}">Agregar</button>
@@ -89,7 +89,7 @@
                     @endforeach
                     <tr class="color-footer-b">
                         <th scope="row" colspan="5" class="bordes-b-r">Total</th>
-                        <td colspan="2" class="fw-bold bordes-b-l">{{$total}}</td>
+                        <td colspan="2" class="fw-bold bordes-b-l"><div class="precio-tabla">{{$total}}</div></td>
                     </tr>
                 </tbody>
             </table>

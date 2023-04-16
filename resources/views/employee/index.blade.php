@@ -1,12 +1,12 @@
 @extends('layouts.appEm')
 
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid mb-5">
 
     <div class="row mt-5 ">
         <!-- Logo -->
         <div class="col-md-12 col-lg-7">
-            <img src="../resources/img/Candy.png" alt="" class="img-fluid">
+            <img src="{{ Vite::asset('resources/img/Candy.png') }}" alt="" class="img-fluid">
         </div>
 
         <!-- Botones -->

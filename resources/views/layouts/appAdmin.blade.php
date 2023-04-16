@@ -53,6 +53,9 @@
                     @if (Route::currentRouteName() == 'RegisterEmployee.edit')
                         <p class="fs-4 my-2 ti">Editar empleado</p>
                     @endif
+                    @if (Route::currentRouteName() == 'Profile')
+                        <p class="fs-4 my-2 ti">Editar perfil</p>
+                    @endif
                 </div>
                 <div class="list-group list-group-flush mt-3">
 
@@ -138,7 +141,7 @@
 
         
     </div>
-    <footer class="foo"></footer>
+    <footer class="f"></footer>
 
     
 
@@ -154,7 +157,7 @@
 
                     <div class="row mb-2 d-flex justify-content-center align-items-center">   
                         <div class="col-12">
-                            <img src="../resources/img/Candy.png" alt="" class="img-fluid">
+                            <img src="{{ Vite::asset('resources/img/Candy.png') }}" alt="" class="img-fluid">
                         </div>
 
                     </div>

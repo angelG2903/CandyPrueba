@@ -25,14 +25,14 @@
         </div>
     </nav>
 
-    <div class="container-fluid">
+    <div class="container-fluid mb-5">
 
         <div class="row mt-5 mb-5 d-flex justify-content-center align-items-center">
-            <div class="col-sm-12 col-md-6 col-lg-6 text-center">
-                <img src="../resources/img/pastel.png" width="300" alt="" class="img-fluid">
+            <div class="col-sm-12 col-md-6 col-lg-6 mb-5">
+                <img src="{{ Vite::asset('resources/img/Candy.png') }}" width="700" alt="" class="img-fluid">
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-6 ">
-                <img src="../resources/img/Candy.png" alt="" class="img-fluid">
+            <div class="col-sm-12 col-md-6 col-lg-6 text-center mb-5">
+                <img src="{{ Vite::asset('resources/img/pastel.png') }}" width="300" alt="" class="img-fluid">    
             </div>
             
 
@@ -40,7 +40,7 @@
         
 
     </div>
-    <footer class="f"></footer>
+    <footer class="f mt-5"></footer>
 
 </body>
 </html>

@@ -7,8 +7,7 @@
 
     <div class="row mt-5 mb-5 d-flex justify-content-center">
         <div class="col-sm-12 col-md-7 col-lg-7">
-            <!-- <img src="../resources/img/Candy.png" alt="" class="img-fluid"> -->
-            <img src="{{ asset('resources/img/Candy.png') }}" alt="" class="img-fluid">
+            <img src="{{ Vite::asset('resources/img/Candy.png') }}" alt="" class="img-fluid">
         </div>
         <!-- d-none d-md-block -->
         <div class="col-md-10 col-lg-4 mt-5 mb-4">

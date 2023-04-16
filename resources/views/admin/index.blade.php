@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Contenido de la pagina -->
-<div class="container">
+<div class="container mb-5">
 
     <div class="row d-flex justify-content-center mt-4">
         <div class="col-10">
@@ -15,12 +15,7 @@
 
                     <div class="col-sm-12 col-md-6 col-lg-4">
                         <input type="date" name="buscar" class="form-control" value="{{ $buscar }}" id="fecha">
-                        <!-- <input type="date" name="buscar" class="form-control" value="{{ isset($buscar)?$buscar:Carbon\Carbon::parse($date)->format('Y-m-d') }}" id="fecha"> -->
                     </div>
-
-                    <!-- <div class="col-sm-12 col-md-6 col-lg-4">
-                        <input type="text" name="buscar" class="form-control" value="{{ $buscar }}" id="fecha">
-                    </div> -->
 
                     <div class="d-none d-md-block col-md-auto col-lg-auto">
                         <button type="submit" class="btn btn-primary">Buscar</button>
@@ -44,17 +39,17 @@
         @if(!empty($cakes))
             <!-- Tabla de los pasteles-->
             <div class="row mt-4 d-flex justify-content-center">
-                <div class="col-sm-12 col-lg-10 table-responsive-sm">
+                <div class="col-sm-12 col-lg-7 table-responsive-sm">
                     <h5>Pasteles vendidos</h5>
                     <table class="table table-borderless">
                         <thead class="color-thead-good">
-                            <tr>
-                                <th scope="col" class="bordes-t-l">#</th>
-                                <th scope="col">Sabor</th>
-                                <th scope="col">Tamaño</th>
-                                <th scope="col">Fecha</th>
-                                <th scope="col">Etiqueta</th>
-                                <th scope="col" class="bordes-t-r">Precio</th>
+                            <tr class="vertical-align-middle">
+                                <th scope="col" class="bordes-t-l"><div class="number-tabla">#</div></th>
+                                <th scope="col"><div class="sabor-tabla">Sabor</div></th>
+                                <th scope="col"><div class="tamano-tabla">Tamaño</div></th>
+                                <th scope="col"><div class="ancho-columna-fecha">Fecha</div></th>
+                                <th scope="col"><div class="etiqueta-tabla">Etiqueta</div></th>
+                                <th scope="col" class="bordes-t-r"><div class="precio-tabla">Precio</div></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -63,13 +58,13 @@
                                 $total = 0;
                             @endphp
                             @foreach($cakes as $cake)
-                            <tr class="color-border-b">
-                                <th scope="row">{{ $cont }}</th>
-                                <td>{{ $cake -> sabor }}</td>
-                                <td>{{ $cake -> tamanio }}</td>
-                                <td>{{ Carbon\Carbon::parse($cake-> updated_at)->format('d-m-Y') }}</td>
-                                <td>{{ $cake -> etiqueta }}</td>
-                                <td>{{ $cake -> precio }}</td>
+                            <tr class="color-border-b align-middle">
+                                <th scope="row"><div class="number-tabla">{{ $cont }}</div></th>
+                                <td><div class="sabor-tabla">{{ $cake -> sabor }}</div></td>
+                                <td><div class="tamano-tabla">{{ $cake -> tamanio }}</div></td>
+                                <td><div class="ancho-columna-fecha">{{ Carbon\Carbon::parse($cake-> updated_at)->format('d-m-Y') }}</div></td>
+                                <td><div class="etiqueta-tabla">{{ $cake -> etiqueta }}</div></td>
+                                <td><div class="precio-tabla">{{ $cake -> precio }}</div></td>
 
                             </tr>
                             @php
@@ -79,7 +74,7 @@
                             @endforeach
                             <tr class="color-footer-b">
                                 <th scope="row" colspan="5" class="bordes-b-r">Total</th>
-                                <td class="fw-bold bordes-b-l">{{ $total }}</td>
+                                <td class="fw-bold bordes-b-l"><div class="precio-tabla">{{ $total }}</div></td>
                             </tr>
                         </tbody>
                     </table>
@@ -91,15 +86,15 @@
         @if(!empty($candles))
             <!-- Tabla velitas -->
             <div class="row  mt-4 d-flex justify-content-center table-responsive-sm">
-                <div class="col-sm-12 col-md-7 col-lg-5">
+                <div class="col-sm-12 col-lg-5">
 
                     <h5>Velas vendidas</h5>
                     <table class="table table-borderless">
                         <thead class="color-thead-good">
-                            <tr>
-                                <th scope="col" class="bordes-t-l">#</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col" class="bordes-t-r">Precio</th>
+                            <tr class="align-middle">
+                                <th scope="col" class="bordes-t-l"><div class="number-tabla">#</div></th>
+                                <th scope="col"><div class="sabor-tabla">Nombre</div></th>
+                                <th scope="col" class="bordes-t-r"><div class="precio-tabla">Precio</div></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -108,10 +103,10 @@
                                 $totalC = 0;
                             @endphp
                             @foreach($candles as $candle)
-                            <tr class="color-border-b">
-                                <th scope="row">{{ $contC }}</th>
-                                <td>{{ $candle -> nombre }}</td>
-                                <td>{{ $candle -> precio }}</td>
+                            <tr class="color-border-b align-middle">
+                                <th scope="row"><div class="number-tabla">{{ $contC }}</div></th>
+                                <td><div class="sabor-tabla">{{ $candle -> nombre }}</div></td>
+                                <td><div class="precio-tabla">{{ $candle -> precio }}</div></td>
 
                             </tr>
                             @php
@@ -121,7 +116,7 @@
                             @endforeach
                             <tr class="color-footer-b">
                                 <th scope="row" colspan="2" class="bordes-b-r">Total</th>
-                                <td class="fw-bold bordes-b-l">{{ $totalC }}</td>
+                                <td class="fw-bold bordes-b-l"><div class="precio-tabla">{{ $totalC }}</div></td>
                             </tr>
                         </tbody>
                     </table>
@@ -133,16 +128,16 @@
         @if(!empty($orders))
             <!-- Tabla pedidos -->
             <div class="row  mt-4 d-flex justify-content-center table-responsive-sm">
-                <div class="col-sm-12 col-md-7 col-lg-6">
+                <div class="col-sm-12 col-lg-6">
 
                     <h5>Anticipo de pedidos</h5>
                     <table class="table table-borderless">
                         <thead class="color-thead-good">
-                            <tr>
+                            <tr class="align-middle">
                                 <th scope="col" class="bordes-t-l">#</th>
                                 <th scope="col">Nombre del cliente</th>
-                                <th scope="col">Fecha</th>
-                                <th scope="col" class="bordes-t-r">Anticipo</th>
+                                <th scope="col"><div class="ancho-columna-fecha">Fecha</div></th>
+                                <th scope="col" class="bordes-t-r"><div class="precio-tabla">Anticipo</div></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -151,11 +146,11 @@
                                 $totalO = 0;
                             @endphp
                             @foreach($orders as $order)
-                            <tr class="color-border-b">
+                            <tr class="color-border-b align-middle">
                                 <th scope="row">{{ $contO }}</th>
                                 <td>{{ $order -> nombre }}</td>
-                                <td>{{ Carbon\Carbon::parse($order-> updated_at)->format('d-m-Y') }}</td>
-                                <td>{{ $order -> anticipo }}</td>
+                                <td><div class="ancho-columna-fecha">{{ Carbon\Carbon::parse($order-> updated_at)->format('d-m-Y') }}</div></td>
+                                <td><div class="precio-tabla">{{ $order -> anticipo }}</div></td>
 
                             </tr>
                             @php
@@ -165,7 +160,7 @@
                             @endforeach
                             <tr class="color-footer-b">
                                 <th scope="row" colspan="3" class="bordes-b-r">Total</th>
-                                <td class="fw-bold bordes-b-l">{{ $totalO }}</td>
+                                <td class="fw-bold bordes-b-l"><div class="precio-tabla">{{ $totalO }}</div></td>
                             </tr>
                         </tbody>
                     </table>

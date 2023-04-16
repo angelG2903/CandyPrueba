@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Contenido de la pagina -->
-<div class="container">
+<div class="container mb-5">
 
     <div class="row d-flex justify-content-center mt-4 ">
         <div class="col-10">
@@ -96,21 +96,15 @@
                             <p class="card-text">Rebanadas: {{ $order->rebanadas }}</p>
                             <p class="card-text">Decoración: {{ $order->decoracion }}</p>
                             <p class="card-text">Dirección: {{ $order->direccion }}</p>
+                            <p class="card-text">Dirección: Fecha de entrega: {{ Carbon\Carbon::parse($order-> fechaEntrega)->format('d-m-Y') }}</p>
+                            <p class="card-text">Dirección: Hora de entrega: {{ Carbon\Carbon::parse($order-> horaEntrega)->isoFormat('h:mm A') }}</p>
+                            <p class="card-text">Anticipo: {{ $order->anticipo }}</p>
                             <div class="row mb-3">
                                 <div class="col-8">
-                                    <p class="card-text">Fecha de entrega: {{ Carbon\Carbon::parse($order-> fechaEntrega)->format('d-m-Y') }}</p>
+                                    <p class="card-text">Restan: {{ ($order->precio) - ($order->anticipo)  }}</p>
                                 </div>
                                 <div class="col-3 ">
-                                    <p class="card-text">Anticipo: {{ $order->anticipo }}</p>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-8">
-                                    <p class="card-text">Hora de entrega: {{ Carbon\Carbon::parse($order-> horaEntrega)->isoFormat('h:m A') }}</p>
-                                </div>
-                                <div class="col-3">
-                                    <p class="card-text">Restan: {{ ($order->precio) - ($order->anticipo)  }}</p>
+                                    <p class="card-text"></p>
                                 </div>
                             </div>
 

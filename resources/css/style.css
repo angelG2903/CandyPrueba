@@ -102,6 +102,9 @@
     padding: 0;
   }
   
+  html {
+    position: relative;
+  }
   
   
   body {
@@ -111,7 +114,6 @@
     display: gri !important;
     min-height: 100vh !important;
     grid-template-rows: auto 1fr auto !important;
-  
   
   }
 
@@ -357,6 +359,34 @@
   }
   
   /* Estilos para tablas de registro producto */
+
+  .number-tabla{
+    width: 22px;
+    text-align: center;
+  }
+  .sabor-tabla{
+    width: 90px;
+  }
+
+  .tamano-tabla{
+    width: 90px;
+  }
+
+  .ancho-columna-fecha{
+    width: 90px;
+    text-align: center;
+  }
+
+  .etiqueta-tabla{
+    width: 90px;
+    text-align: center;
+  }
+
+  .precio-tabla{
+    width: 80px;
+    text-align: center;
+  }
+
   .bordes-t-r {
     border-radius: 0px 10px 0px 0px;
   }
@@ -434,20 +464,10 @@
     color: black;
   }
   
-  footer .foo {
-    /* position: absolute;
-    bottom: 0; */
-      
-    height: 50px;
-    width: 100%;
-    background-image: linear-gradient(to right, #ffb88c, #e08282);
-  
-  }
 
   .f {
     position: absolute;
-    bottom: 0;
-      
+    bottom:0px;
     height: 50px;
     width: 100%;
     background-image: linear-gradient(to right, #ffb88c, #e08282);

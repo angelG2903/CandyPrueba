@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="container">
+<div class="container mb-5">
 
 
     @if(!empty($candles))
@@ -15,9 +15,9 @@
             <table class="table table-borderless">
                 <thead class="color-thead-good">
                     <tr>
-                        <th scope="col" class="bordes-t-l">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Precio</th>
+                        <th scope="col" class="bordes-t-l"><div class="number-tabla">#</div></th>
+                        <th scope="col"><div class="sabor-tabla">Nombre</div></th>
+                        <th scope="col"><div class="precio-tabla">Precio</div></th>
                         <th scope="col" class="bordes-t-r"></th>
                     </tr>
                 </thead>
@@ -29,10 +29,10 @@
 
                     @endphp
                     @foreach( $candles as $candle )
-                    <tr class="color-border-b">
-                        <th scope="row">{{$contC}}</th>
-                        <td>{{ $candle -> nombre }}</td>
-                        <td>{{ $candle -> precio }}</td>
+                    <tr class="color-border-b align-middle">
+                        <th scope="row"><div class="number-tabla">{{ $contC }}</div></th>
+                        <td><div class="sabor-tabla">{{ $candle -> nombre }}</div></td>
+                        <td><div class="precio-tabla">{{ $candle -> precio }}</div></td>
                         <td>
                             <div class="d-flex justify-content-center">
                                 <button type="button" class="btn-blue-boton btn-color-azul-b px-3 me-1" data-bs-toggle="modal" data-bs-target="#borrar-{{$candle ->id}}">Agregar</button>
@@ -80,7 +80,7 @@
                     @endforeach
                     <tr class="color-footer-b">
                         <th scope="row" colspan="2" class="bordes-b-r">Total</th>
-                        <td colspan="2" class="fw-bold bordes-b-l">{{$totalC}}</td>
+                        <td colspan="2" class="fw-bold bordes-b-l"><div class="precio-tabla">{{$totalC}}</div></td>
                     </tr>
                 </tbody>
             </table>

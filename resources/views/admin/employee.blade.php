@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Contenido de la pagina -->
-<div class="container">
+<div class="container mb-5">
 
     <div class="row mt-4 me-1">
         <div class="d-flex justify-content-end">
@@ -118,6 +118,16 @@
 <script>
     Swal.fire(
         'Empleado eliminado con éxito',
+        '',
+        'success'
+    )
+</script>
+@endif
+
+@if(Session('mensaje') == 'usercreate')
+<script>
+    Swal.fire(
+        'Empleado registrado con éxito',
         '',
         'success'
     )

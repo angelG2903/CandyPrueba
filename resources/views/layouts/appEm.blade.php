@@ -75,8 +75,8 @@
             
         </main>
     </div>
-    <!-- <footer class="f"></footer> -->
-    <footer></footer>
+
+    <footer class="f"></footer>
 
 
     <div class="modal fade" id="editarUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -90,7 +90,7 @@
 
                     <div class="row mb-2 d-flex justify-content-center align-items-center">   
                         <div class="col-12">
-                            <img src="../resources/img/Candy.png" alt="" class="img-fluid">
+                            <img src="{{ Vite::asset('resources/img/Candy.png') }}" alt="" class="img-fluid">
                         </div>
 
                     </div>

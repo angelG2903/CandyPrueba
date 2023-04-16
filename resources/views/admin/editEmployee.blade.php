@@ -1,7 +1,7 @@
 @extends('layouts.appAdmin')
 
 @section('content')
-<div class="container">
+<div class="container mb-5">
     <div class="row justify-content-center mt-3">
         <div class="col-md-7">
             <div class="card">

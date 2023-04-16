@@ -1,8 +1,16 @@
 {
   "resources/css/style.css": {
-    "file": "assets/style-2ce3e9e7.css",
+    "file": "assets/style-0dc4c056.css",
     "isEntry": true,
     "src": "resources/css/style.css"
+  },
+  "resources/img/Candy.png": {
+    "file": "assets/Candy-c41c7e75.png",
+    "src": "resources/img/Candy.png"
+  },
+  "resources/img/pastel.png": {
+    "file": "assets/pastel-f3b2a55c.png",
+    "src": "resources/img/pastel.png"
   },
   "resources/js/app.js": {
     "file": "assets/app-4c85f5d2.js",

@@ -3,7 +3,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container mb-5">
 
     <div class="row mt-3 d-flex justify-content-center">
 
