@@ -15,8 +15,9 @@ class AdminController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['auth','admin','disable_back']);
-        // $this->middleware('auth');
+        // solo comenta esta linea para poder entrar a registrar el admin
+        // $this->middleware(['auth','admin','disable_back']);
+
         
     }
     

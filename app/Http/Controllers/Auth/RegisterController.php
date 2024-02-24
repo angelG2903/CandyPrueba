@@ -38,7 +38,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['admin', 'auth']);
+        // solo comenta esta linea para poder entrar a registrar el admin
+        // $this->middleware(['admin', 'auth']);
     }
 
     public function redirectPath()

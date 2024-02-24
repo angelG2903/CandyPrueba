@@ -106,7 +106,7 @@
                         <div class="dropdown me-sm-2 me-lg-3 "> <!-- checar -->
 
                             <button class=" dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person-fill"></i>{{Auth::user()->name}}
+                                {{-- <i class="bi bi-person-fill"></i>{{Auth::user()->name}} --}}
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="{{ route('Dashboard') }}"><i class="bi bi-house"></i>Inicio</a></li>
@@ -163,10 +163,10 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <p><b>Nombre:</b> {{Auth::user()->name}}</p>
+                            {{-- <p><b>Nombre:</b> {{Auth::user()->name}}</p>
                             <p><b>Apellido:</b> {{Auth::user()->last_name}}</p>
                             <p><b>Teléfono:</b> {{Auth::user()->phone_number}}</p>
-                            <p><b>Correo:</b> {{Auth::user()->email}}</p>
+                            <p><b>Correo:</b> {{Auth::user()->email}}</p> --}}
 
                             <div class="row">
                                 <div class="col-6"></div>
